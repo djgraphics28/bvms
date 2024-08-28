@@ -15,6 +15,7 @@
     "bezhansalleh/filament-exceptions": "^2.0",
     "croustibat/filament-jobs-monitor": "^2.4.0",
     "diglactic/laravel-breadcrumbs": "^9.0",
+    "dotswan/filament-map-picker": "^1.2",
     "filament/filament": "^3.2.50",
     "jeffgreco13/filament-breezy": "^2.2",
     "laravel/framework": "^11.0",
