@@ -74,7 +74,7 @@ class AdminPanelProvider extends PanelProvider
                 'Settings',
             ])
             ->colors([
-                'primary' => Color::Green,
+                'primary' => Color::Purple,
             ])
             ->viteTheme('resources/css/admin.css')
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')

@@ -21,4 +21,24 @@ class Barangay extends Model
     {
         return $this->hasMany(Driver::class, 'barangay_id', 'id');
     }
+
+    /**
+     * Get all of the users for the Barangay
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function users(): HasMany
+    {
+        return $this->hasMany(User::class, 'barangay_id', 'id');
+    }
+
+    /**
+     * Get all of the vehicles for the Barangay
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function vehicles(): HasMany
+    {
+        return $this->hasMany(Vehicle::class, 'barangay_id', 'id');
+    }
 }
