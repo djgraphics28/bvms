@@ -21,9 +21,6 @@ return new class extends Migration
             $table->string('driver_license_number');
             $table->string('driver_license_picture')->nullable();
             $table->boolean('is_active')->default(true);
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });

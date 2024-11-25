@@ -23,4 +23,14 @@ class Incident extends Model implements HasMedia
     {
         return $this->belongsTo(IncidentCategory::class, 'incident_category_id', 'id');
     }
+
+    /**
+     * Get the creator that owns the Incident
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function creator(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

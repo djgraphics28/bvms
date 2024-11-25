@@ -69,6 +69,9 @@ class DriverResource extends Resource
                 Tables\Columns\ImageColumn::make('driver_license_picture'),
                 Tables\Columns\IconColumn::make('is_active')
                     ->boolean(),
+                Tables\Columns\TextColumn::make('user_id')
+                    ->label('User Login?')
+                    ->formatStateUsing(fn($state) => $state ?? 'No' ? 'Yes' : 'No'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

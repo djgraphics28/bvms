@@ -47,10 +47,11 @@ class IncidentController extends Controller
      *   }
      * }
      */
-    public function index()
+    public function index(Request $request)
     {
+        $barangayId = $request->user()->barangay_id;
         // Paginate incidents with 10 items per page
-        $incidents = Incident::paginate(10);
+        $incidents = Incident::where('barangay_id', $barangayId)->get();
         return response()->json($incidents);
     }
 
@@ -74,7 +75,6 @@ class IncidentController extends Controller
      *   "priority": "high",
      *   "type": "request",
      *   "status": "pending",
-     *   "user_id": 5,
      *   "incident_category_id": 2,
      *   "created_at": "2024-11-18T12:00:00.000000Z",
      *   "updated_at": "2024-11-18T12:00:00.000000Z"
@@ -90,9 +90,10 @@ class IncidentController extends Controller
             'priority' => 'in:low,medium,high',
             'type' => 'in:incident,request',
             'status' => 'string',
-            'user_id' => 'required|exists:users,id',
             'incident_category_id' => 'required|exists:incident_categories,id',
         ]);
+
+        $validatedData['user_id'] = $request->user()->id;
 
         // Create a new incident
         $incident = Incident::create($validatedData);
@@ -167,7 +168,6 @@ class IncidentController extends Controller
             'priority' => 'in:low,medium,high',
             'type' => 'in:incident,request',
             'status' => 'string',
-            'user_id' => 'exists:users,id',
             'incident_category_id' => 'exists:incident_categories,id',
         ]);
 

@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Filament\Panel;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Notifications\Notifiable;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
 
 class User extends Authenticatable implements HasMedia
 {
@@ -25,6 +26,7 @@ class User extends Authenticatable implements HasMedia
         'email',
         'password',
         'barangay_id',
+        'is_approved',
     ];
 
     /**
@@ -58,5 +60,15 @@ class User extends Authenticatable implements HasMedia
     public function driverDetail(): HasOne
     {
         return $this->hasOne(Driver::class, 'user_id', 'id');
+    }
+
+    /**
+     * Get the barangay that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function barangay(): BelongsTo
+    {
+        return $this->belongsTo(Barangay::class, 'barangay_id', 'id');
     }
 }

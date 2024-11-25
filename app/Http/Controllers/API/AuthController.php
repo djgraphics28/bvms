@@ -31,15 +31,22 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (auth()->attempt($credentials)) {
+            // Check if the authenticated user is approved
+            if (!auth()->user()->is_approved) {
+                // Logout the user and return an error if not approved
+                auth()->logout();
+                return response()->json(['error' => 'Account not approved'], 403);
+            }
+
             $token = auth()->user()->createToken('auth_token')->plainTextToken;
             $user_type = auth()->user()->user_type;
 
             return response()->json(['token' => $token, 'user_type' => $user_type], 200);
-
         } else {
             return response()->json(['error' => 'Invalid credentials'], 401);
         }
     }
+
 
     /**
      * Log out the authenticated user.

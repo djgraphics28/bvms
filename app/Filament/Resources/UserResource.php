@@ -2,14 +2,15 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Models\User;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
+use App\Models\User;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
 use Illuminate\Support\Facades\Hash;
+use Filament\Notifications\Notification;
+use App\Filament\Resources\UserResource\Pages;
 
 class UserResource extends Resource
 {
@@ -59,10 +60,20 @@ class UserResource extends Resource
                     ->unique(ignoreRecord: true)
                     ->maxLength(255),
 
+                Forms\Components\Select::make('barangay_id')
+                    ->label('Barangay')
+                    ->relationship('barangay', 'name')
+                    ->required(),
+
+                Forms\Components\Toggle::make('is_approved')
+                    ->label('Is Approved')
+                    ->default(false)
+                    ->required(),
+
                 Forms\Components\TextInput::make('password')
-                    ->dehydrateStateUsing(fn (string $state): string => Hash::make($state))
-                    ->dehydrated(fn (?string $state): bool => filled($state))
-                    ->required(fn (string $operation): bool => $operation === 'create')
+                    ->dehydrateStateUsing(fn(string $state): string => Hash::make($state))
+                    ->dehydrated(fn(?string $state): bool => filled($state))
+                    ->required(fn(string $operation): bool => $operation === 'create')
                     ->password()
                     ->confirmed()
                     ->maxLength(255),
@@ -70,7 +81,7 @@ class UserResource extends Resource
                 Forms\Components\TextInput::make('password_confirmation')
                     ->label('Confirm password')
                     ->password()
-                    ->required(fn (string $operation): bool => $operation === 'create')
+                    ->required(fn(string $operation): bool => $operation === 'create')
                     ->maxLength(255),
             ]);
     }
@@ -88,14 +99,60 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
 
+                Tables\Columns\TextColumn::make('barangay.name')
+                    ->label('Barangay')
+                    ->searchable(),
+
+                Tables\Columns\TextColumn::make('user_type')
+                    ->label('User Type')
+                    ->searchable(),
+
+                Tables\Columns\IconColumn::make('is_approved')
+                    ->boolean()
+                    ->label('Is Approved'),
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable(),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('barangay')
+                    ->relationship('barangay', 'name'),
+
+                Tables\Filters\SelectFilter::make('user_type')
+                    ->options([
+                        'driver' => 'Driver',
+                        'admin' => 'Admin'
+                    ])
             ])
             ->actions([
+                Tables\Actions\Action::make('approve')
+                    ->icon('heroicon-o-check')
+                    ->color('success')
+                    ->action(function (User $record) {
+                        $record->update(['is_approved' => true]);
+                        Notification::make()
+                            ->success()
+                            ->title('User Approved')
+                            ->body('User has been successfully approved.')
+                            ->send();
+                    })
+                    ->visible(fn(User $record): bool => ! $record->is_approved),
+
+                Tables\Actions\Action::make('disapprove')
+                    ->icon('heroicon-o-x-mark')
+                    ->color('danger')
+                    ->requiresConfirmation()
+                    ->action(function (User $record) {
+                        $record->update(['is_approved' => false]);
+                        Notification::make()
+                            ->danger()
+                            ->title('User Disapproved')
+                            ->body('User has been disapproved.')
+                            ->send();
+                    })
+                    ->visible(fn(User $record): bool => $record->is_approved),
+
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])

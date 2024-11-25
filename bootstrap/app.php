@@ -22,6 +22,11 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
 
         $middleware->redirectTo(fn () => Filament\Pages\Dashboard::getUrl());
+
+        $middleware->alias([
+            'check.approved' => \App\Http\Middleware\CheckApprovedStatus::class,
+        ]);
+
     })
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->reportable(fn (Throwable $e) => $exceptions->handler->shouldReport($e) &&
