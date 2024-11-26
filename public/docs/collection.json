@@ -9,8 +9,8 @@
         }
     ],
     "info": {
-        "name": "BVMS",
-        "_postman_id": "a0e2f819-46ed-4979-93b0-c00e53bb3ef8",
+        "name": "BVMS Admin",
+        "_postman_id": "8e2718c5-6456-48cc-b3ec-3405af98da60",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -19,54 +19,6 @@
             "name": "Endpoints",
             "description": "",
             "item": [
-                {
-                    "name": "GET api\/users",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/users",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/users"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 200,
-                            "body": "[]",
-                            "name": ""
-                        }
-                    ]
-                },
                 {
                     "name": "GET api\/barangays",
                     "request": {
@@ -110,7 +62,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "[]",
+                            "body": "[{\"id\":1,\"name\":\"Binalonan\",\"longitude\":\"12313111\",\"latitude\":\"1231313131\",\"created_at\":\"2024-11-25T15:00:22.000000Z\",\"updated_at\":\"2024-11-25T15:00:22.000000Z\"}]",
                             "name": ""
                         }
                     ]
@@ -381,7 +333,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"\\\"Power Outage\\\"\",\"description\":\"\\\"There is a power outage in the building.\\\"\",\"location\":\"\\\"Building A, Floor 3\\\"\",\"priority\":\"\\\"high\\\" Allowed values: low, medium, high. Default: low.\",\"type\":\"\\\"request\\\" Allowed values: incident, request. Default: incident.\",\"status\":\"\\\"pending\\\"\",\"user_id\":5,\"incident_category_id\":2}"
+                            "raw": "{\"title\":\"\\\"Power Outage\\\"\",\"description\":\"\\\"There is a power outage in the building.\\\"\",\"location\":\"\\\"Building A, Floor 3\\\"\",\"priority\":\"\\\"high\\\" Allowed values: low, medium, high. Default: low.\",\"type\":\"\\\"request\\\" Allowed values: incident, request. Default: incident.\",\"status\":\"\\\"pending\\\"\",\"incident_category_id\":2,\"user_id\":5}"
                         },
                         "description": "",
                         "auth": {
@@ -392,7 +344,7 @@
                         {
                             "header": [],
                             "code": 201,
-                            "body": "{\n  \"id\": 1,\n  \"title\": \"Power Outage\",\n  \"description\": \"There is a power outage in the building.\",\n  \"location\": \"Building A, Floor 3\",\n  \"priority\": \"high\",\n  \"type\": \"request\",\n  \"status\": \"pending\",\n  \"user_id\": 5,\n  \"incident_category_id\": 2,\n  \"created_at\": \"2024-11-18T12:00:00.000000Z\",\n  \"updated_at\": \"2024-11-18T12:00:00.000000Z\"\n}",
+                            "body": "{\n  \"id\": 1,\n  \"title\": \"Power Outage\",\n  \"description\": \"There is a power outage in the building.\",\n  \"location\": \"Building A, Floor 3\",\n  \"priority\": \"high\",\n  \"type\": \"request\",\n  \"status\": \"pending\",\n  \"incident_category_id\": 2,\n  \"created_at\": \"2024-11-18T12:00:00.000000Z\",\n  \"updated_at\": \"2024-11-18T12:00:00.000000Z\"\n}",
                             "name": ""
                         }
                     ]
@@ -470,7 +422,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"\\\"Network Failure\\\"\",\"description\":\"\\\"The network connection is down in the west wing.\\\"\",\"location\":\"\\\"West Wing, Room 12\\\"\",\"priority\":\"\\\"medium\\\" Allowed values: low, medium, high.\",\"type\":\"\\\"incident\\\" Allowed values: incident, request.\",\"status\":\"\\\"resolved\\\"\",\"user_id\":5,\"incident_category_id\":3}"
+                            "raw": "{\"title\":\"\\\"Network Failure\\\"\",\"description\":\"\\\"The network connection is down in the west wing.\\\"\",\"location\":\"\\\"West Wing, Room 12\\\"\",\"priority\":\"\\\"medium\\\" Allowed values: low, medium, high.\",\"type\":\"\\\"incident\\\" Allowed values: incident, request.\",\"status\":\"\\\"resolved\\\"\",\"incident_category_id\":3,\"user_id\":5}"
                         },
                         "description": "",
                         "auth": {
@@ -525,6 +477,410 @@
                             "header": [],
                             "code": 200,
                             "body": "{\n  \"message\": \"Incident deleted successfully\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display a listing of the resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/vehicles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/vehicles"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Show the form for creating a new resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/vehicles\/create",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/vehicles\/create"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store a newly created resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/vehicles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/vehicles"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Display the specified resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/vehicles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/vehicles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the vehicle."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Show the form for editing the specified resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/vehicles\/:vehicle\/edit",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/vehicles\/:vehicle\/edit",
+                            "variable": [
+                                {
+                                    "id": "vehicle",
+                                    "key": "vehicle",
+                                    "value": "1",
+                                    "description": "The vehicle."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/vehicles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/vehicles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the vehicle."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/vehicles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/vehicles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the vehicle."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Display lists of drivers.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/drivers",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/drivers"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display lists of admins.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admins",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admins"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
                             "name": ""
                         }
                     ]

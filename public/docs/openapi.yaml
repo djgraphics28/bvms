@@ -1,31 +1,12 @@
 openapi: 3.0.3
 info:
-  title: BVMS
+  title: 'BVMS Admin'
   description: ''
   version: 1.0.0
 servers:
   -
     url: 'https://bvms.online'
 paths:
-  /api/users:
-    get:
-      summary: ''
-      operationId: getApiUsers
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                example: []
-      tags:
-        - Endpoints
-      security: []
   /api/barangays:
     get:
       summary: ''
@@ -41,7 +22,14 @@ paths:
                 type: array
                 items:
                   type: object
-                example: []
+                example:
+                  -
+                    id: 1
+                    name: Binalonan
+                    longitude: '12313111'
+                    latitude: '1231313131'
+                    created_at: '2024-11-25T15:00:22.000000Z'
+                    updated_at: '2024-11-25T15:00:22.000000Z'
       tags:
         - Endpoints
       security: []
@@ -379,7 +367,6 @@ paths:
                   priority: high
                   type: request
                   status: pending
-                  user_id: 5
                   incident_category_id: 2
                   created_at: '2024-11-18T12:00:00.000000Z'
                   updated_at: '2024-11-18T12:00:00.000000Z'
@@ -405,9 +392,6 @@ paths:
                   status:
                     type: string
                     example: pending
-                  user_id:
-                    type: integer
-                    example: 5
                   incident_category_id:
                     type: integer
                     example: 2
@@ -456,22 +440,22 @@ paths:
                   description: 'The status of the incident.'
                   example: '"pending"'
                   nullable: false
-                user_id:
-                  type: integer
-                  description: 'The ID of the user reporting the incident.'
-                  example: 5
-                  nullable: false
                 incident_category_id:
                   type: integer
                   description: 'The ID of the incident category.'
                   example: 2
                   nullable: false
+                user_id:
+                  type: integer
+                  description: 'The ID of the user reporting the incident.'
+                  example: 5
+                  nullable: false
               required:
                 - title
                 - description
                 - location
-                - user_id
                 - incident_category_id
+                - user_id
       security: []
   '/api/incidents/{id}':
     get:
@@ -592,15 +576,15 @@ paths:
                   description: 'The status of the incident.'
                   example: '"resolved"'
                   nullable: false
-                user_id:
-                  type: integer
-                  description: 'The ID of the user reporting the incident.'
-                  example: 5
-                  nullable: false
                 incident_category_id:
                   type: integer
                   description: 'The ID of the incident category.'
                   example: 3
+                  nullable: false
+                user_id:
+                  type: integer
+                  description: 'The ID of the user reporting the incident.'
+                  example: 5
                   nullable: false
       security: []
     delete:
@@ -633,6 +617,183 @@ paths:
         required: true
         schema:
           type: integer
+  /api/vehicles:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/vehicles/create:
+    get:
+      summary: 'Show the form for creating a new resource.'
+      operationId: showTheFormForCreatingANewResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  '/api/vehicles/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the vehicle.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/vehicles/{vehicle}/edit':
+    get:
+      summary: 'Show the form for editing the specified resource.'
+      operationId: showTheFormForEditingTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: vehicle
+        description: 'The vehicle.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/drivers:
+    get:
+      summary: 'Display lists of drivers.'
+      operationId: displayListsOfDrivers
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/admins:
+    get:
+      summary: 'Display lists of admins.'
+      operationId: displayListsOfAdmins
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
 tags:
   -
     name: Endpoints
