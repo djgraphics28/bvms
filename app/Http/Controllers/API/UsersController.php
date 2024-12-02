@@ -6,10 +6,26 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+/**
+ * @group User Management
+ *
+ * APIs for managing users
+ */
 class UsersController extends Controller
 {
     /**
-     * Display lists of drivers.
+     * Get Drivers List
+     *
+     * Display lists of drivers in the barangay.
+     *
+     * @authenticated
+     * @response scenario=success {
+     *  "id": 1,
+     *  "name": "John Doe",
+     *  "email": "john@example.com",
+     *  "user_type": "driver",
+     *  "barangay_id": 1
+     * }
      */
     public function drivers(Request $request)
     {
@@ -19,7 +35,25 @@ class UsersController extends Controller
         return response()->json($users);
     }
 
-    //get driver info
+    /**
+     * Get Driver Information
+     *
+     * Get detailed information of authenticated driver.
+     *
+     * @authenticated
+     * @response scenario=success {
+     *  "id": 1,
+     *  "name": "John Doe",
+     *  "email": "john@example.com",
+     *  "user_type": "driver",
+     *  "barangay_id": 1,
+     *  "driver_detail": {
+     *      "id": 1,
+     *      "user_id": 1,
+     *      "license_number": "ABC123"
+     *  }
+     * }
+     */
     public function driverInfo(Request $request)
     {
         $driverId = $request->user()->id;
@@ -29,7 +63,18 @@ class UsersController extends Controller
     }
 
     /**
-     * Display lists of admins.
+     * Get Admins List
+     *
+     * Display lists of admins in the barangay.
+     *
+     * @authenticated
+     * @response scenario=success {
+     *  "id": 1,
+     *  "name": "Jane Doe",
+     *  "email": "jane@example.com",
+     *  "user_type": "admin",
+     *  "barangay_id": 1
+     * }
      */
     public function admins(Request $request)
     {

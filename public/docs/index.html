@@ -66,70 +66,105 @@
                     <a href="#authenticating-requests">Authenticating requests</a>
                 </li>
                             </ul>
-                    <ul id="tocify-header-endpoints" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="endpoints">
-                    <a href="#endpoints">Endpoints</a>
+                    <ul id="tocify-header-authentication" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authentication">
+                    <a href="#authentication">Authentication</a>
                 </li>
-                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-barangays">
-                                <a href="#endpoints-GETapi-barangays">GET api/barangays</a>
+                                    <ul id="tocify-subheader-authentication" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="authentication-POSTapi-login">
+                                <a href="#authentication-POSTapi-login">Login</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-login">
-                                <a href="#endpoints-POSTapi-login">Log in a user and get an authentication token.</a>
+                                                                                <li class="tocify-item level-2" data-unique="authentication-POSTapi-forgot-password">
+                                <a href="#authentication-POSTapi-forgot-password">Forgot Password</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-forgot-password">
-                                <a href="#endpoints-POSTapi-forgot-password">Send a reset password link to the user's email.</a>
+                                                                                <li class="tocify-item level-2" data-unique="authentication-POSTapi-logout">
+                                <a href="#authentication-POSTapi-logout">Logout</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-logout">
-                                <a href="#endpoints-POSTapi-logout">Log out the authenticated user.</a>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-barangay-management" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="barangay-management">
+                    <a href="#barangay-management">Barangay Management</a>
+                </li>
+                                    <ul id="tocify-subheader-barangay-management" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="barangay-management-GETapi-barangays">
+                                <a href="#barangay-management-GETapi-barangays">List all barangays</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-profile">
-                                <a href="#endpoints-GETapi-profile">GET api/profile</a>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-incident-management" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="incident-management">
+                    <a href="#incident-management">Incident Management</a>
+                </li>
+                                    <ul id="tocify-subheader-incident-management" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="incident-management-GETapi-incidents">
+                                <a href="#incident-management-GETapi-incidents">Get a list of all incidents.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-profile">
-                                <a href="#endpoints-PUTapi-profile">PUT api/profile</a>
+                                                                                <li class="tocify-item level-2" data-unique="incident-management-POSTapi-incidents">
+                                <a href="#incident-management-POSTapi-incidents">Store a newly created incident in the database.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-incidents">
-                                <a href="#endpoints-GETapi-incidents">Get a list of all incidents.</a>
+                                                                                <li class="tocify-item level-2" data-unique="incident-management-GETapi-incidents--id-">
+                                <a href="#incident-management-GETapi-incidents--id-">Get details of a specific incident.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-incidents">
-                                <a href="#endpoints-POSTapi-incidents">Store a newly created incident in the database.</a>
+                                                                                <li class="tocify-item level-2" data-unique="incident-management-PUTapi-incidents--id-">
+                                <a href="#incident-management-PUTapi-incidents--id-">Update an existing incident.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-incidents--id-">
-                                <a href="#endpoints-GETapi-incidents--id-">Get details of a specific incident.</a>
+                                                                                <li class="tocify-item level-2" data-unique="incident-management-DELETEapi-incidents--id-">
+                                <a href="#incident-management-DELETEapi-incidents--id-">Delete a specific incident.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-incidents--id-">
-                                <a href="#endpoints-PUTapi-incidents--id-">Update an existing incident.</a>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-profile-management" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="profile-management">
+                    <a href="#profile-management">Profile Management</a>
+                </li>
+                                    <ul id="tocify-subheader-profile-management" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="profile-management-GETapi-profile">
+                                <a href="#profile-management-GETapi-profile">Get User Profile</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-incidents--id-">
-                                <a href="#endpoints-DELETEapi-incidents--id-">Delete a specific incident.</a>
+                                                                                <li class="tocify-item level-2" data-unique="profile-management-PUTapi-profile">
+                                <a href="#profile-management-PUTapi-profile">Update User Profile</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-vehicles">
-                                <a href="#endpoints-GETapi-vehicles">Display a listing of the resource.</a>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-user-management" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="user-management">
+                    <a href="#user-management">User Management</a>
+                </li>
+                                    <ul id="tocify-subheader-user-management" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="user-management-GETapi-drivers">
+                                <a href="#user-management-GETapi-drivers">Get Drivers List</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-vehicles-create">
-                                <a href="#endpoints-GETapi-vehicles-create">Show the form for creating a new resource.</a>
+                                                                                <li class="tocify-item level-2" data-unique="user-management-GETapi-admins">
+                                <a href="#user-management-GETapi-admins">Get Admins List</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-vehicles">
-                                <a href="#endpoints-POSTapi-vehicles">Store a newly created resource in storage.</a>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-vehicle-management" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="vehicle-management">
+                    <a href="#vehicle-management">Vehicle Management</a>
+                </li>
+                                    <ul id="tocify-subheader-vehicle-management" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="vehicle-management-GETapi-vehicles">
+                                <a href="#vehicle-management-GETapi-vehicles">List Vehicles</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-vehicles--id-">
-                                <a href="#endpoints-GETapi-vehicles--id-">Display the specified resource.</a>
+                                                                                <li class="tocify-item level-2" data-unique="vehicle-management-GETapi-vehicles-create">
+                                <a href="#vehicle-management-GETapi-vehicles-create">Show the form for creating a new resource.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-vehicles--vehicle--edit">
-                                <a href="#endpoints-GETapi-vehicles--vehicle--edit">Show the form for editing the specified resource.</a>
+                                                                                <li class="tocify-item level-2" data-unique="vehicle-management-POSTapi-vehicles">
+                                <a href="#vehicle-management-POSTapi-vehicles">Store a newly created resource in storage.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-vehicles--id-">
-                                <a href="#endpoints-PUTapi-vehicles--id-">Update the specified resource in storage.</a>
+                                                                                <li class="tocify-item level-2" data-unique="vehicle-management-GETapi-vehicles--id-">
+                                <a href="#vehicle-management-GETapi-vehicles--id-">Display the specified resource.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-vehicles--id-">
-                                <a href="#endpoints-DELETEapi-vehicles--id-">Remove the specified resource from storage.</a>
+                                                                                <li class="tocify-item level-2" data-unique="vehicle-management-GETapi-vehicles--vehicle--edit">
+                                <a href="#vehicle-management-GETapi-vehicles--vehicle--edit">Show the form for editing the specified resource.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-drivers">
-                                <a href="#endpoints-GETapi-drivers">Display lists of drivers.</a>
+                                                                                <li class="tocify-item level-2" data-unique="vehicle-management-PUTapi-vehicles--id-">
+                                <a href="#vehicle-management-PUTapi-vehicles--id-">Update Vehicle Status</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-admins">
-                                <a href="#endpoints-GETapi-admins">Display lists of admins.</a>
+                                                                                <li class="tocify-item level-2" data-unique="vehicle-management-DELETEapi-vehicles--id-">
+                                <a href="#vehicle-management-DELETEapi-vehicles--id-">Remove the specified resource from storage.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -160,147 +195,16 @@ You can switch the language used with the tabs at the top right (or from the nav
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
 
-        <h1 id="endpoints">Endpoints</h1>
+        <h1 id="authentication">Authentication</h1>
 
-    
+    <p>APIs for managing authentication</p>
 
-                                <h2 id="endpoints-GETapi-barangays">GET api/barangays</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-GETapi-barangays">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "https://bvms.online/api/barangays" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://bvms.online/api/barangays"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-barangays">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">[
-    {
-        &quot;id&quot;: 1,
-        &quot;name&quot;: &quot;Binalonan&quot;,
-        &quot;longitude&quot;: &quot;12313111&quot;,
-        &quot;latitude&quot;: &quot;1231313131&quot;,
-        &quot;created_at&quot;: &quot;2024-11-25T15:00:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-11-25T15:00:22.000000Z&quot;
-    }
-]</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-barangays" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-barangays"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-barangays"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-barangays" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-barangays">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-barangays" data-method="GET"
-      data-path="api/barangays"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-barangays', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-barangays"
-                    onclick="tryItOut('GETapi-barangays');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-barangays"
-                    onclick="cancelTryOut('GETapi-barangays');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-barangays"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/barangays</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-barangays"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-barangays"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="endpoints-POSTapi-login">Log in a user and get an authentication token.</h2>
+                                <h2 id="authentication-POSTapi-login">Login</h2>
 
 <p>
 </p>
 
-
+<p>Log in a user and get an authentication token.</p>
 
 <span id="example-requests-POSTapi-login">
 <blockquote>Example request:</blockquote>
@@ -456,12 +360,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="endpoints-POSTapi-forgot-password">Send a reset password link to the user&#039;s email.</h2>
+                    <h2 id="authentication-POSTapi-forgot-password">Forgot Password</h2>
 
 <p>
 </p>
 
-
+<p>Send a reset password link to the user's email.</p>
 
 <span id="example-requests-POSTapi-forgot-password">
 <blockquote>Example request:</blockquote>
@@ -603,13 +507,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="endpoints-POSTapi-logout">Log out the authenticated user.</h2>
+                    <h2 id="authentication-POSTapi-logout">Logout</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Log out the authenticated user.</p>
 
 <span id="example-requests-POSTapi-logout">
 <blockquote>Example request:</blockquote>
@@ -721,27 +625,31 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="endpoints-GETapi-profile">GET api/profile</h2>
+                <h1 id="barangay-management">Barangay Management</h1>
+
+    <p>APIs for managing barangays</p>
+
+                                <h2 id="barangay-management-GETapi-barangays">List all barangays</h2>
 
 <p>
 </p>
 
+<p>Get a list of all barangays in the system</p>
 
-
-<span id="example-requests-GETapi-profile">
+<span id="example-requests-GETapi-barangays">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://bvms.online/api/profile" \
+    --get "https://bvms.online/api/barangays" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://bvms.online/api/profile"
+    "https://bvms.online/api/barangays"
 );
 
 const headers = {
@@ -756,9 +664,9 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-profile">
+<span id="example-responses-GETapi-barangays">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -769,48 +677,55 @@ content-type: application/json
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
+<code class="language-json" style="max-height: 300px;">[
+    {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Binalonan&quot;,
+        &quot;longitude&quot;: &quot;12313111&quot;,
+        &quot;latitude&quot;: &quot;1231313131&quot;,
+        &quot;created_at&quot;: &quot;2024-11-25T15:00:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-11-25T15:00:22.000000Z&quot;
+    }
+]</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-profile" hidden>
+<span id="execution-results-GETapi-barangays" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-profile"></span>:
+                id="execution-response-status-GETapi-barangays"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-profile"
+    <pre class="json"><code id="execution-response-content-GETapi-barangays"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-profile" hidden>
+<span id="execution-error-GETapi-barangays" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-profile">
+    <pre><code id="execution-error-message-GETapi-barangays">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-profile" data-method="GET"
-      data-path="api/profile"
+<form id="form-GETapi-barangays" data-method="GET"
+      data-path="api/barangays"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-profile', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-barangays', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-profile"
-                    onclick="tryItOut('GETapi-profile');">Try it out ⚡
+                    id="btn-tryout-GETapi-barangays"
+                    onclick="tryItOut('GETapi-barangays');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-profile"
-                    onclick="cancelTryOut('GETapi-profile');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-barangays"
+                    onclick="cancelTryOut('GETapi-barangays');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-profile"
+                    id="btn-executetryout-GETapi-barangays"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -818,7 +733,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/profile</code></b>
+            <b><code>api/barangays</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -826,7 +741,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-profile"
+                              name="Content-Type"                data-endpoint="GETapi-barangays"
                value="application/json"
                data-component="header">
     <br>
@@ -837,7 +752,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-profile"
+                              name="Accept"                data-endpoint="GETapi-barangays"
                value="application/json"
                data-component="header">
     <br>
@@ -845,115 +760,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="endpoints-PUTapi-profile">PUT api/profile</h2>
+                <h1 id="incident-management">Incident Management</h1>
 
-<p>
-</p>
+    <p>APIs for managing incidents</p>
 
-
-
-<span id="example-requests-PUTapi-profile">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request PUT \
-    "https://bvms.online/api/profile" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://bvms.online/api/profile"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "PUT",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-PUTapi-profile">
-</span>
-<span id="execution-results-PUTapi-profile" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-PUTapi-profile"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-PUTapi-profile"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-PUTapi-profile" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PUTapi-profile">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-PUTapi-profile" data-method="PUT"
-      data-path="api/profile"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PUTapi-profile', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-profile"
-                    onclick="tryItOut('PUTapi-profile');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-profile"
-                    onclick="cancelTryOut('PUTapi-profile');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-profile"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-darkblue">PUT</small>
-            <b><code>api/profile</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="PUTapi-profile"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="PUTapi-profile"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="endpoints-GETapi-incidents">Get a list of all incidents.</h2>
+                                <h2 id="incident-management-GETapi-incidents">Get a list of all incidents.</h2>
 
 <p>
 </p>
@@ -1129,7 +940,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="endpoints-POSTapi-incidents">Store a newly created incident in the database.</h2>
+                    <h2 id="incident-management-POSTapi-incidents">Store a newly created incident in the database.</h2>
 
 <p>
 </p>
@@ -1367,7 +1178,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="endpoints-GETapi-incidents--id-">Get details of a specific incident.</h2>
+                    <h2 id="incident-management-GETapi-incidents--id-">Get details of a specific incident.</h2>
 
 <p>
 </p>
@@ -1506,7 +1317,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="endpoints-PUTapi-incidents--id-">Update an existing incident.</h2>
+                    <h2 id="incident-management-PUTapi-incidents--id-">Update an existing incident.</h2>
 
 <p>
 </p>
@@ -1751,7 +1562,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="endpoints-DELETEapi-incidents--id-">Delete a specific incident.</h2>
+                    <h2 id="incident-management-DELETEapi-incidents--id-">Delete a specific incident.</h2>
 
 <p>
 </p>
@@ -1880,12 +1691,548 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="endpoints-GETapi-vehicles">Display a listing of the resource.</h2>
+                <h1 id="profile-management">Profile Management</h1>
+
+    <p>APIs for managing user profiles</p>
+
+                                <h2 id="profile-management-GETapi-profile">Get User Profile</h2>
 
 <p>
 </p>
 
+<p>Returns the authenticated user's profile information</p>
 
+<span id="example-requests-GETapi-profile">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://bvms.online/api/profile" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://bvms.online/api/profile"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-profile">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-profile" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-profile"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-profile"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-profile" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-profile">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-profile" data-method="GET"
+      data-path="api/profile"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-profile', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-profile"
+                    onclick="tryItOut('GETapi-profile');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-profile"
+                    onclick="cancelTryOut('GETapi-profile');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-profile"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/profile</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-profile"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-profile"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="profile-management-PUTapi-profile">Update User Profile</h2>
+
+<p>
+</p>
+
+<p>Updates the authenticated user's profile information</p>
+
+<span id="example-requests-PUTapi-profile">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "https://bvms.online/api/profile" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"et\",
+    \"email\": \"hnitzsche@example.net\",
+    \"phone\": \"distinctio\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://bvms.online/api/profile"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "et",
+    "email": "hnitzsche@example.net",
+    "phone": "distinctio"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-profile">
+</span>
+<span id="execution-results-PUTapi-profile" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-profile"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-profile"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-profile" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-profile">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-profile" data-method="PUT"
+      data-path="api/profile"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-profile', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-profile"
+                    onclick="tryItOut('PUTapi-profile');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-profile"
+                    onclick="cancelTryOut('PUTapi-profile');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-profile"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/profile</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-profile"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-profile"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="PUTapi-profile"
+               value="et"
+               data-component="body">
+    <br>
+<p>Name of the user Example: <code>et</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="PUTapi-profile"
+               value="hnitzsche@example.net"
+               data-component="body">
+    <br>
+<p>Email of the user Example: <code>hnitzsche@example.net</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="phone"                data-endpoint="PUTapi-profile"
+               value="distinctio"
+               data-component="body">
+    <br>
+<p>Phone number of the user Example: <code>distinctio</code></p>
+        </div>
+        </form>
+
+                <h1 id="user-management">User Management</h1>
+
+    <p>APIs for managing users</p>
+
+                                <h2 id="user-management-GETapi-drivers">Get Drivers List</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Display lists of drivers in the barangay.</p>
+
+<span id="example-requests-GETapi-drivers">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://bvms.online/api/drivers" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://bvms.online/api/drivers"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-drivers">
+            <blockquote>
+            <p>Example response (200, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;John Doe&quot;,
+    &quot;email&quot;: &quot;john@example.com&quot;,
+    &quot;user_type&quot;: &quot;driver&quot;,
+    &quot;barangay_id&quot;: 1
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-drivers" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-drivers"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-drivers"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-drivers" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-drivers">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-drivers" data-method="GET"
+      data-path="api/drivers"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-drivers', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-drivers"
+                    onclick="tryItOut('GETapi-drivers');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-drivers"
+                    onclick="cancelTryOut('GETapi-drivers');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-drivers"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/drivers</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-drivers"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-drivers"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="user-management-GETapi-admins">Get Admins List</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Display lists of admins in the barangay.</p>
+
+<span id="example-requests-GETapi-admins">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://bvms.online/api/admins" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://bvms.online/api/admins"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-admins">
+            <blockquote>
+            <p>Example response (200, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;Jane Doe&quot;,
+    &quot;email&quot;: &quot;jane@example.com&quot;,
+    &quot;user_type&quot;: &quot;admin&quot;,
+    &quot;barangay_id&quot;: 1
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-admins" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-admins"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-admins"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-admins" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-admins">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-admins" data-method="GET"
+      data-path="api/admins"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-admins', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-admins"
+                    onclick="tryItOut('GETapi-admins');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-admins"
+                    onclick="cancelTryOut('GETapi-admins');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-admins"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/admins</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-admins"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-admins"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                <h1 id="vehicle-management">Vehicle Management</h1>
+
+    <p>APIs for managing vehicles</p>
+
+                                <h2 id="vehicle-management-GETapi-vehicles">List Vehicles</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Get a list of vehicles for the authenticated user's barangay</p>
 
 <span id="example-requests-GETapi-vehicles">
 <blockquote>Example request:</blockquote>
@@ -1917,19 +2264,18 @@ fetch(url, {
 
 <span id="example-responses-GETapi-vehicles">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;barangay_id&quot;: 1,
+            &quot;status&quot;: &quot;active&quot;
+        }
+    ]
 }</code>
  </pre>
     </span>
@@ -1950,7 +2296,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-GETapi-vehicles" data-method="GET"
       data-path="api/vehicles"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -2004,7 +2350,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="endpoints-GETapi-vehicles-create">Show the form for creating a new resource.</h2>
+                    <h2 id="vehicle-management-GETapi-vehicles-create">Show the form for creating a new resource.</h2>
 
 <p>
 </p>
@@ -2128,7 +2474,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="endpoints-POSTapi-vehicles">Store a newly created resource in storage.</h2>
+                    <h2 id="vehicle-management-POSTapi-vehicles">Store a newly created resource in storage.</h2>
 
 <p>
 </p>
@@ -2236,7 +2582,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="endpoints-GETapi-vehicles--id-">Display the specified resource.</h2>
+                    <h2 id="vehicle-management-GETapi-vehicles--id-">Display the specified resource.</h2>
 
 <p>
 </p>
@@ -2372,7 +2718,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="endpoints-GETapi-vehicles--vehicle--edit">Show the form for editing the specified resource.</h2>
+                    <h2 id="vehicle-management-GETapi-vehicles--vehicle--edit">Show the form for editing the specified resource.</h2>
 
 <p>
 </p>
@@ -2508,12 +2854,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="endpoints-PUTapi-vehicles--id-">Update the specified resource in storage.</h2>
+                    <h2 id="vehicle-management-PUTapi-vehicles--id-">Update Vehicle Status</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Update the status of a specific vehicle</p>
 
 <span id="example-requests-PUTapi-vehicles--id-">
 <blockquote>Example request:</blockquote>
@@ -2521,14 +2868,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://bvms.online/api/vehicles/1" \
+    "https://bvms.online/api/vehicles/rerum" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"status\": \"omnis\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://bvms.online/api/vehicles/1"
+    "https://bvms.online/api/vehicles/rerum"
 );
 
 const headers = {
@@ -2536,15 +2887,38 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "status": "omnis"
+};
+
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
 <span id="example-responses-PUTapi-vehicles--id-">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Vehicle Status updated successfully&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;Vehicle not found&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PUTapi-vehicles--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PUTapi-vehicles--id-"></span>:
@@ -2562,7 +2936,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-PUTapi-vehicles--id-" data-method="PUT"
       data-path="api/vehicles/{id}"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -2621,18 +2995,30 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+<small>string</small>&nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="PUTapi-vehicles--id-"
-               value="1"
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTapi-vehicles--id-"
+               value="rerum"
                data-component="url">
     <br>
-<p>The ID of the vehicle. Example: <code>1</code></p>
+<p>The ID of the vehicle Example: <code>rerum</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="status"                data-endpoint="PUTapi-vehicles--id-"
+               value="omnis"
+               data-component="body">
+    <br>
+<p>The new status of the vehicle Example: <code>omnis</code></p>
+        </div>
+        </form>
 
-                    <h2 id="endpoints-DELETEapi-vehicles--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="vehicle-management-DELETEapi-vehicles--id-">Remove the specified resource from storage.</h2>
 
 <p>
 </p>
@@ -2751,254 +3137,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>The ID of the vehicle. Example: <code>1</code></p>
             </div>
                     </form>
-
-                    <h2 id="endpoints-GETapi-drivers">Display lists of drivers.</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-GETapi-drivers">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "https://bvms.online/api/drivers" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://bvms.online/api/drivers"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-drivers">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-drivers" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-drivers"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-drivers"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-drivers" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-drivers">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-drivers" data-method="GET"
-      data-path="api/drivers"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-drivers', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-drivers"
-                    onclick="tryItOut('GETapi-drivers');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-drivers"
-                    onclick="cancelTryOut('GETapi-drivers');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-drivers"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/drivers</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-drivers"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-drivers"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="endpoints-GETapi-admins">Display lists of admins.</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-GETapi-admins">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "https://bvms.online/api/admins" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://bvms.online/api/admins"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-admins">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-admins" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-admins"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-admins"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-admins" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-admins">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-admins" data-method="GET"
-      data-path="api/admins"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-admins', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-admins"
-                    onclick="tryItOut('GETapi-admins');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-admins"
-                    onclick="cancelTryOut('GETapi-admins');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-admins"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/admins</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-admins"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-admins"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
 
             
 

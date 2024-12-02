@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Incident;
 use Illuminate\Http\Request;
 
+/**
+ * @group Incident Management
+ *
+ * APIs for managing incidents
+ */
 class IncidentController extends Controller
 {
     /**

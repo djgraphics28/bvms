@@ -1,0 +1,95 @@
+name: 'User Management'
+description: |-
+
+  APIs for managing users
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/drivers
+    metadata:
+      groupName: 'User Management'
+      groupDescription: |-
+
+        APIs for managing users
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Drivers List'
+      description: 'Display lists of drivers in the barangay.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "id": 1,
+           "name": "John Doe",
+           "email": "john@example.com",
+           "user_type": "driver",
+           "barangay_id": 1
+          }
+        headers: []
+        description: success
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/admins
+    metadata:
+      groupName: 'User Management'
+      groupDescription: |-
+
+        APIs for managing users
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Admins List'
+      description: 'Display lists of admins in the barangay.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "id": 1,
+           "name": "Jane Doe",
+           "email": "jane@example.com",
+           "user_type": "admin",
+           "barangay_id": 1
+          }
+        headers: []
+        description: success
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

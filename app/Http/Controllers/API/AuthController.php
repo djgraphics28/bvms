@@ -10,9 +10,16 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 
+/**
+ * @group Authentication
+ *
+ * APIs for managing authentication
+ */
 class AuthController extends Controller
 {
     /**
+     * Login
+     *
      * Log in a user and get an authentication token.
      *
      * @bodyParam email string required The user's email address. Example: user@example.com
@@ -49,6 +56,8 @@ class AuthController extends Controller
 
 
     /**
+     * Logout
+     *
      * Log out the authenticated user.
      *
      * @authenticated
@@ -64,6 +73,8 @@ class AuthController extends Controller
     }
 
     /**
+     * Forgot Password
+     *
      * Send a reset password link to the user's email.
      *
      * @bodyParam email string required The user's email address. Example: user@example.com

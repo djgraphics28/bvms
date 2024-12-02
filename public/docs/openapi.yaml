@@ -7,37 +7,11 @@ servers:
   -
     url: 'https://bvms.online'
 paths:
-  /api/barangays:
-    get:
-      summary: ''
-      operationId: getApiBarangays
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                example:
-                  -
-                    id: 1
-                    name: Binalonan
-                    longitude: '12313111'
-                    latitude: '1231313131'
-                    created_at: '2024-11-25T15:00:22.000000Z'
-                    updated_at: '2024-11-25T15:00:22.000000Z'
-      tags:
-        - Endpoints
-      security: []
   /api/login:
     post:
-      summary: 'Log in a user and get an authentication token.'
-      operationId: logInAUserAndGetAnAuthenticationToken
-      description: ''
+      summary: Login
+      operationId: login
+      description: 'Log in a user and get an authentication token.'
       parameters: []
       responses:
         200:
@@ -69,7 +43,7 @@ paths:
                     type: string
                     example: 'Invalid credentials'
       tags:
-        - Endpoints
+        - Authentication
       requestBody:
         required: true
         content:
@@ -93,9 +67,9 @@ paths:
       security: []
   /api/forgot-password:
     post:
-      summary: "Send a reset password link to the user's email."
-      operationId: sendAResetPasswordLinkToTheUsersEmail
-      description: ''
+      summary: 'Forgot Password'
+      operationId: forgotPassword
+      description: "Send a reset password link to the user's email."
       parameters: []
       responses:
         200:
@@ -123,7 +97,7 @@ paths:
                     type: string
                     example: 'User not found'
       tags:
-        - Endpoints
+        - Authentication
       requestBody:
         required: true
         content:
@@ -141,9 +115,9 @@ paths:
       security: []
   /api/logout:
     post:
-      summary: 'Log out the authenticated user.'
-      operationId: logOutTheAuthenticatedUser
-      description: ''
+      summary: Logout
+      operationId: logout
+      description: 'Log out the authenticated user.'
       parameters: []
       responses:
         200:
@@ -159,37 +133,32 @@ paths:
                     type: string
                     example: 'Logged out'
       tags:
-        - Endpoints
-  /api/profile:
+        - Authentication
+  /api/barangays:
     get:
-      summary: ''
-      operationId: getApiProfile
-      description: ''
+      summary: 'List all barangays'
+      operationId: listAllBarangays
+      description: 'Get a list of all barangays in the system'
       parameters: []
       responses:
-        401:
+        200:
           description: ''
           content:
             application/json:
               schema:
-                type: object
+                type: array
+                items:
+                  type: object
                 example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
+                  -
+                    id: 1
+                    name: Binalonan
+                    longitude: '12313111'
+                    latitude: '1231313131'
+                    created_at: '2024-11-25T15:00:22.000000Z'
+                    updated_at: '2024-11-25T15:00:22.000000Z'
       tags:
-        - Endpoints
-      security: []
-    put:
-      summary: ''
-      operationId: putApiProfile
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
+        - 'Barangay Management'
       security: []
   /api/incidents:
     get:
@@ -345,7 +314,7 @@ paths:
                         type: integer
                         example: 100
       tags:
-        - Endpoints
+        - 'Incident Management'
       security: []
     post:
       summary: 'Store a newly created incident in the database.'
@@ -402,7 +371,7 @@ paths:
                     type: string
                     example: '2024-11-18T12:00:00.000000Z'
       tags:
-        - Endpoints
+        - 'Incident Management'
       requestBody:
         required: true
         content:
@@ -517,7 +486,7 @@ paths:
                     type: string
                     example: '2024-11-18T12:00:00.000000Z'
       tags:
-        - Endpoints
+        - 'Incident Management'
       security: []
     put:
       summary: 'Update an existing incident.'
@@ -538,7 +507,7 @@ paths:
                     type: string
                     example: 'Incident updated successfully'
       tags:
-        - Endpoints
+        - 'Incident Management'
       requestBody:
         required: false
         content:
@@ -606,7 +575,7 @@ paths:
                     type: string
                     example: 'Incident deleted successfully'
       tags:
-        - Endpoints
+        - 'Incident Management'
       security: []
     parameters:
       -
@@ -617,11 +586,11 @@ paths:
         required: true
         schema:
           type: integer
-  /api/vehicles:
+  /api/profile:
     get:
-      summary: 'Display a listing of the resource.'
-      operationId: displayAListingOfTheResource
-      description: ''
+      summary: 'Get User Profile'
+      operationId: getUserProfile
+      description: "Returns the authenticated user's profile information"
       parameters: []
       responses:
         401:
@@ -637,8 +606,154 @@ paths:
                     type: string
                     example: Unauthenticated.
       tags:
-        - Endpoints
+        - 'Profile Management'
       security: []
+    put:
+      summary: 'Update User Profile'
+      operationId: updateUserProfile
+      description: "Updates the authenticated user's profile information"
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Profile Management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Name of the user'
+                  example: et
+                  nullable: false
+                email:
+                  type: string
+                  description: 'Email of the user'
+                  example: hnitzsche@example.net
+                  nullable: false
+                phone:
+                  type: string
+                  description: 'Phone number of the user'
+                  example: distinctio
+                  nullable: false
+      security: []
+  /api/drivers:
+    get:
+      summary: 'Get Drivers List'
+      operationId: getDriversList
+      description: 'Display lists of drivers in the barangay.'
+      parameters: []
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  name: 'John Doe'
+                  email: john@example.com
+                  user_type: driver
+                  barangay_id: 1
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: 'John Doe'
+                  email:
+                    type: string
+                    example: john@example.com
+                  user_type:
+                    type: string
+                    example: driver
+                  barangay_id:
+                    type: integer
+                    example: 1
+      tags:
+        - 'User Management'
+  /api/admins:
+    get:
+      summary: 'Get Admins List'
+      operationId: getAdminsList
+      description: 'Display lists of admins in the barangay.'
+      parameters: []
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  name: 'Jane Doe'
+                  email: jane@example.com
+                  user_type: admin
+                  barangay_id: 1
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: 'Jane Doe'
+                  email:
+                    type: string
+                    example: jane@example.com
+                  user_type:
+                    type: string
+                    example: admin
+                  barangay_id:
+                    type: integer
+                    example: 1
+      tags:
+        - 'User Management'
+  /api/vehicles:
+    get:
+      summary: 'List Vehicles'
+      operationId: listVehicles
+      description: "Get a list of vehicles for the authenticated user's barangay"
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      barangay_id: 1
+                      status: active
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        barangay_id: 1
+                        status: active
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        barangay_id:
+                          type: integer
+                          example: 1
+                        status:
+                          type: string
+                          example: active
+      tags:
+        - 'Vehicle Management'
     post:
       summary: 'Store a newly created resource in storage.'
       operationId: storeANewlyCreatedResourceInStorage
@@ -646,7 +761,7 @@ paths:
       parameters: []
       responses: {  }
       tags:
-        - Endpoints
+        - 'Vehicle Management'
       security: []
   /api/vehicles/create:
     get:
@@ -668,7 +783,7 @@ paths:
                     type: string
                     example: Unauthenticated.
       tags:
-        - Endpoints
+        - 'Vehicle Management'
       security: []
   '/api/vehicles/{id}':
     get:
@@ -690,17 +805,54 @@ paths:
                     type: string
                     example: Unauthenticated.
       tags:
-        - Endpoints
+        - 'Vehicle Management'
       security: []
     put:
-      summary: 'Update the specified resource in storage.'
-      operationId: updateTheSpecifiedResourceInStorage
-      description: ''
+      summary: 'Update Vehicle Status'
+      operationId: updateVehicleStatus
+      description: 'Update the status of a specific vehicle'
       parameters: []
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Vehicle Status updated successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'Vehicle Status updated successfully'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'Vehicle not found'
+                properties:
+                  error:
+                    type: string
+                    example: 'Vehicle not found'
       tags:
-        - Endpoints
-      security: []
+        - 'Vehicle Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  description: 'The new status of the vehicle'
+                  example: omnis
+                  nullable: false
+              required:
+                - status
     delete:
       summary: 'Remove the specified resource from storage.'
       operationId: removeTheSpecifiedResourceFromStorage
@@ -708,7 +860,7 @@ paths:
       parameters: []
       responses: {  }
       tags:
-        - Endpoints
+        - 'Vehicle Management'
       security: []
     parameters:
       -
@@ -739,7 +891,7 @@ paths:
                     type: string
                     example: Unauthenticated.
       tags:
-        - Endpoints
+        - 'Vehicle Management'
       security: []
     parameters:
       -
@@ -750,51 +902,22 @@ paths:
         required: true
         schema:
           type: integer
-  /api/drivers:
-    get:
-      summary: 'Display lists of drivers.'
-      operationId: displayListsOfDrivers
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-  /api/admins:
-    get:
-      summary: 'Display lists of admins.'
-      operationId: displayListsOfAdmins
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
 tags:
   -
-    name: Endpoints
-    description: ''
+    name: Authentication
+    description: "\nAPIs for managing authentication"
+  -
+    name: 'Barangay Management'
+    description: "\nAPIs for managing barangays"
+  -
+    name: 'Incident Management'
+    description: "\nAPIs for managing incidents"
+  -
+    name: 'Profile Management'
+    description: "\nAPIs for managing user profiles"
+  -
+    name: 'User Management'
+    description: "\nAPIs for managing users"
+  -
+    name: 'Vehicle Management'
+    description: "\nAPIs for managing vehicles"

@@ -7,10 +7,29 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\API\VehicleResource;
 
+/**
+ * @group Vehicle Management
+ *
+ * APIs for managing vehicles
+ */
 class VehicleController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * List Vehicles
+     *
+     * Get a list of vehicles for the authenticated user's barangay
+     *
+     * @authenticated
+     *
+     * @response {
+     *  "data": [
+     *    {
+     *      "id": 1,
+     *      "barangay_id": 1,
+     *      "status": "active"
+     *    }
+     *  ]
+     * }
      */
     public function index(Request $request)
     {
@@ -53,7 +72,21 @@ class VehicleController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update Vehicle Status
+     *
+     * Update the status of a specific vehicle
+     *
+     * @authenticated
+     * @urlParam id required The ID of the vehicle
+     * @bodyParam status string required The new status of the vehicle
+     *
+     * @response {
+     *    "message": "Vehicle Status updated successfully"
+     * }
+     *
+     * @response 404 {
+     *    "error": "Vehicle not found"
+     * }
      */
     public function update(Request $request, string $id)
     {

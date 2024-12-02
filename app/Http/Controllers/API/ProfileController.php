@@ -5,8 +5,20 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+/**
+ * @group Profile Management
+ *
+ * APIs for managing user profiles
+ */
 class ProfileController extends Controller
 {
+    /**
+     * Get User Profile
+     *
+     * Returns the authenticated user's profile information
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function profile()
     {
         //if user type == driver return users and driverDetail relation
@@ -17,6 +29,17 @@ class ProfileController extends Controller
         }
     }
 
+    /**
+     * Update User Profile
+     *
+     * Updates the authenticated user's profile information
+     *
+     * @bodyParam name string Name of the user
+     * @bodyParam email string Email of the user
+     * @bodyParam phone string Phone number of the user
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function updateProfile(Request $request)
     {
         // if user_type is driver

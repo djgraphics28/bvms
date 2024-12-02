@@ -10,17 +10,143 @@
     ],
     "info": {
         "name": "BVMS Admin",
-        "_postman_id": "cedcf06c-0a99-4b74-943d-2ae54cc9e8a9",
+        "_postman_id": "4fbdcf96-3f44-4c73-83f2-ceb27fd0f22f",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
         {
-            "name": "Endpoints",
-            "description": "",
+            "name": "Authentication",
+            "description": "\nAPIs for managing authentication",
             "item": [
                 {
-                    "name": "GET api\/barangays",
+                    "name": "Login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"user@example.com\",\"password\":\"password123\"}"
+                        },
+                        "description": "Log in a user and get an authentication token.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"token\": \"1|abcd1234\",\n  \"user_type\": \"admin\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n  \"error\": \"Invalid credentials\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Forgot Password",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forgot-password",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/forgot-password"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"user@example.com\"}"
+                        },
+                        "description": "Send a reset password link to the user's email.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Reset password link sent to your email\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n  \"error\": \"User not found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Log out the authenticated user."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Logged out\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Barangay Management",
+            "description": "\nAPIs for managing barangays",
+            "item": [
+                {
+                    "name": "List all barangays",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -40,7 +166,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
+                        "description": "Get a list of all barangays in the system",
                         "auth": {
                             "type": "noauth"
                         }
@@ -66,203 +192,13 @@
                             "name": ""
                         }
                     ]
-                },
-                {
-                    "name": "Log in a user and get an authentication token.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/login",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/login"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"email\":\"user@example.com\",\"password\":\"password123\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n  \"token\": \"1|abcd1234\",\n  \"user_type\": \"admin\"\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n  \"error\": \"Invalid credentials\"\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Send a reset password link to the user's email.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/forgot-password",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/forgot-password"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"email\":\"user@example.com\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n  \"message\": \"Reset password link sent to your email\"\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 404,
-                            "body": "{\n  \"error\": \"User not found\"\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Log out the authenticated user.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/logout",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/logout"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n  \"message\": \"Logged out\"\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "GET api\/profile",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/profile",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/profile"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "PUT api\/profile",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/profile",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/profile"
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
+                }
+            ]
+        },
+        {
+            "name": "Incident Management",
+            "description": "\nAPIs for managing incidents",
+            "item": [
                 {
                     "name": "Get a list of all incidents.",
                     "request": {
@@ -480,15 +416,21 @@
                             "name": ""
                         }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "name": "Profile Management",
+            "description": "\nAPIs for managing user profiles",
+            "item": [
                 {
-                    "name": "Display a listing of the resource.",
+                    "name": "Get User Profile",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/vehicles",
+                            "path": "api\/profile",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/vehicles"
+                            "raw": "{{baseUrl}}\/api\/profile"
                         },
                         "method": "GET",
                         "header": [
@@ -502,7 +444,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
+                        "description": "Returns the authenticated user's profile information",
                         "auth": {
                             "type": "noauth"
                         }
@@ -525,6 +467,145 @@
                             ],
                             "code": 401,
                             "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update User Profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/profile",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/profile"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"et\",\"email\":\"hnitzsche@example.net\",\"phone\":\"distinctio\"}"
+                        },
+                        "description": "Updates the authenticated user's profile information",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "User Management",
+            "description": "\nAPIs for managing users",
+            "item": [
+                {
+                    "name": "Get Drivers List",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/drivers",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/drivers"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Display lists of drivers in the barangay."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"id\": 1,\n \"name\": \"John Doe\",\n \"email\": \"john@example.com\",\n \"user_type\": \"driver\",\n \"barangay_id\": 1\n}",
+                            "name": "success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get Admins List",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admins",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admins"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Display lists of admins in the barangay."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"id\": 1,\n \"name\": \"Jane Doe\",\n \"email\": \"jane@example.com\",\n \"user_type\": \"admin\",\n \"barangay_id\": 1\n}",
+                            "name": "success"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Vehicle Management",
+            "description": "\nAPIs for managing vehicles",
+            "item": [
+                {
+                    "name": "List Vehicles",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/vehicles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/vehicles"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get a list of vehicles for the authenticated user's barangay"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": [\n   {\n     \"id\": 1,\n     \"barangay_id\": 1,\n     \"status\": \"active\"\n   }\n ]\n}",
                             "name": ""
                         }
                     ]
@@ -718,7 +799,7 @@
                     ]
                 },
                 {
-                    "name": "Update the specified resource in storage.",
+                    "name": "Update Vehicle Status",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -729,8 +810,8 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the vehicle."
+                                    "value": "rerum",
+                                    "description": "The ID of the vehicle"
                                 }
                             ]
                         },
@@ -745,13 +826,26 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"status\":\"omnis\"}"
+                        },
+                        "description": "Update the status of a specific vehicle"
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"message\": \"Vehicle Status updated successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n   \"error\": \"Vehicle not found\"\n}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
                     "name": "Remove the specified resource from storage.",
@@ -788,102 +882,6 @@
                         }
                     },
                     "response": []
-                },
-                {
-                    "name": "Display lists of drivers.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/drivers",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/drivers"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Display lists of admins.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/admins",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/admins"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
                 }
             ]
         }
