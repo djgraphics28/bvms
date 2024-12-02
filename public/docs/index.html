@@ -178,6 +178,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="vehicle-management-PUTapi-vehicle-logout--id-">
                                 <a href="#vehicle-management-PUTapi-vehicle-logout--id-">Log Vehicle Return</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="vehicle-management-GETapi-vehicle-logs">
+                                <a href="#vehicle-management-GETapi-vehicle-logs">Get Vehicle Logs</a>
+                            </li>
                                                                         </ul>
                             </ul>
             </div>
@@ -3178,7 +3181,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://bvms.online/api/vehicles/14" \
+    --get "https://bvms.online/api/vehicles/20" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}"</code></pre></div>
@@ -3186,7 +3189,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://bvms.online/api/vehicles/14"
+    "https://bvms.online/api/vehicles/20"
 );
 
 const headers = {
@@ -3307,10 +3310,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-vehicles--id-"
-               value="14"
+               value="20"
                data-component="url">
     <br>
-<p>The ID of the vehicle. Example: <code>14</code></p>
+<p>The ID of the vehicle. Example: <code>20</code></p>
             </div>
                     </form>
 
@@ -3327,7 +3330,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://bvms.online/api/vehicles/18/edit" \
+    --get "https://bvms.online/api/vehicles/1/edit" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}"</code></pre></div>
@@ -3335,7 +3338,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://bvms.online/api/vehicles/18/edit"
+    "https://bvms.online/api/vehicles/1/edit"
 );
 
 const headers = {
@@ -3456,10 +3459,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="vehicle"                data-endpoint="GETapi-vehicles--vehicle--edit"
-               value="18"
+               value="1"
                data-component="url">
     <br>
-<p>The vehicle. Example: <code>18</code></p>
+<p>The vehicle. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -3477,19 +3480,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://bvms.online/api/vehicles/est" \
+    "https://bvms.online/api/vehicles/illo" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"status\": \"unde\"
+    \"status\": \"qui\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://bvms.online/api/vehicles/est"
+    "https://bvms.online/api/vehicles/illo"
 );
 
 const headers = {
@@ -3499,7 +3502,7 @@ const headers = {
 };
 
 let body = {
-    "status": "unde"
+    "status": "qui"
 };
 
 fetch(url, {
@@ -3621,10 +3624,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-vehicles--id-"
-               value="est"
+               value="illo"
                data-component="url">
     <br>
-<p>The ID of the vehicle Example: <code>est</code></p>
+<p>The ID of the vehicle Example: <code>illo</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3633,10 +3636,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-vehicles--id-"
-               value="unde"
+               value="qui"
                data-component="body">
     <br>
-<p>The new status of the vehicle Example: <code>unde</code></p>
+<p>The new status of the vehicle Example: <code>qui</code></p>
         </div>
         </form>
 
@@ -3653,7 +3656,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://bvms.online/api/vehicles/1" \
+    "https://bvms.online/api/vehicles/20" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}"</code></pre></div>
@@ -3661,7 +3664,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://bvms.online/api/vehicles/1"
+    "https://bvms.online/api/vehicles/20"
 );
 
 const headers = {
@@ -3766,10 +3769,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-vehicles--id-"
-               value="1"
+               value="20"
                data-component="url">
     <br>
-<p>The ID of the vehicle. Example: <code>1</code></p>
+<p>The ID of the vehicle. Example: <code>20</code></p>
             </div>
                     </form>
 
@@ -3787,22 +3790,22 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://bvms.online/api/vehicle-login/id" \
+    "https://bvms.online/api/vehicle-login/totam" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"status\": \"ducimus\",
-    \"purpose\": \"sit\",
-    \"driver\": \"vero\",
-    \"destination\": \"vel\"
+    \"status\": \"qui\",
+    \"purpose\": \"consequuntur\",
+    \"driver\": \"nihil\",
+    \"destination\": \"facere\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://bvms.online/api/vehicle-login/id"
+    "https://bvms.online/api/vehicle-login/totam"
 );
 
 const headers = {
@@ -3812,10 +3815,10 @@ const headers = {
 };
 
 let body = {
-    "status": "ducimus",
-    "purpose": "sit",
-    "driver": "vero",
-    "destination": "vel"
+    "status": "qui",
+    "purpose": "consequuntur",
+    "driver": "nihil",
+    "destination": "facere"
 };
 
 fetch(url, {
@@ -3942,10 +3945,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="POSTapi-vehicle-login--id-"
-               value="id"
+               value="totam"
                data-component="url">
     <br>
-<p>The ID of the vehicle Example: <code>id</code></p>
+<p>The ID of the vehicle Example: <code>totam</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3954,10 +3957,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="POSTapi-vehicle-login--id-"
-               value="ducimus"
+               value="qui"
                data-component="body">
     <br>
-<p>The status of the vehicle (must be 'out') Example: <code>ducimus</code></p>
+<p>The status of the vehicle (must be 'out') Example: <code>qui</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>purpose</code></b>&nbsp;&nbsp;
@@ -3965,10 +3968,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="purpose"                data-endpoint="POSTapi-vehicle-login--id-"
-               value="sit"
+               value="consequuntur"
                data-component="body">
     <br>
-<p>The purpose of the trip Example: <code>sit</code></p>
+<p>The purpose of the trip Example: <code>consequuntur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>driver</code></b>&nbsp;&nbsp;
@@ -3976,10 +3979,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="driver"                data-endpoint="POSTapi-vehicle-login--id-"
-               value="vero"
+               value="nihil"
                data-component="body">
     <br>
-<p>The ID of the driver Example: <code>vero</code></p>
+<p>The ID of the driver Example: <code>nihil</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>destination</code></b>&nbsp;&nbsp;
@@ -3987,10 +3990,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="destination"                data-endpoint="POSTapi-vehicle-login--id-"
-               value="vel"
+               value="facere"
                data-component="body">
     <br>
-<p>The destination of the trip Example: <code>vel</code></p>
+<p>The destination of the trip Example: <code>facere</code></p>
         </div>
         </form>
 
@@ -4008,19 +4011,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://bvms.online/api/vehicle-logout/aut" \
+    "https://bvms.online/api/vehicle-logout/in" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"status\": \"suscipit\"
+    \"status\": \"numquam\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://bvms.online/api/vehicle-logout/aut"
+    "https://bvms.online/api/vehicle-logout/in"
 );
 
 const headers = {
@@ -4030,7 +4033,7 @@ const headers = {
 };
 
 let body = {
-    "status": "suscipit"
+    "status": "numquam"
 };
 
 fetch(url, {
@@ -4157,10 +4160,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-vehicle-logout--id-"
-               value="aut"
+               value="in"
                data-component="url">
     <br>
-<p>The ID of the vehicle Example: <code>aut</code></p>
+<p>The ID of the vehicle Example: <code>in</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -4169,12 +4172,155 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-vehicle-logout--id-"
-               value="suscipit"
+               value="numquam"
                data-component="body">
     <br>
-<p>The status of the vehicle (must be 'returned') Example: <code>suscipit</code></p>
+<p>The status of the vehicle (must be 'returned') Example: <code>numquam</code></p>
         </div>
         </form>
+
+                    <h2 id="vehicle-management-GETapi-vehicle-logs">Get Vehicle Logs</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Get a list of vehicle logs for the authenticated user's barangay</p>
+
+<span id="example-requests-GETapi-vehicle-logs">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://bvms.online/api/vehicle-logs" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://bvms.online/api/vehicle-logs"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-vehicle-logs">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;vehicle_id&quot;: 1,
+            &quot;barangay_id&quot;: 1,
+            &quot;status&quot;: &quot;out&quot;,
+            &quot;purpose&quot;: &quot;Official Business&quot;,
+            &quot;destination&quot;: &quot;City Hall&quot;,
+            &quot;driver_id&quot;: 1,
+            &quot;entry_time&quot;: &quot;2024-01-01 08:00:00&quot;,
+            &quot;exit_time&quot;: &quot;2024-01-01 17:00:00&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-vehicle-logs" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-vehicle-logs"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-vehicle-logs"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-vehicle-logs" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-vehicle-logs">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-vehicle-logs" data-method="GET"
+      data-path="api/vehicle-logs"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-vehicle-logs', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-vehicle-logs"
+                    onclick="tryItOut('GETapi-vehicle-logs');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-vehicle-logs"
+                    onclick="cancelTryOut('GETapi-vehicle-logs');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-vehicle-logs"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/vehicle-logs</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-vehicle-logs"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-vehicle-logs"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-vehicle-logs"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
             
 

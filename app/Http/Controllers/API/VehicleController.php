@@ -235,4 +235,36 @@ class VehicleController extends Controller
             return response()->json(['message' => 'Vehicle return logged successfully']);
         }
     }
+
+    /**
+     * Get Vehicle Logs
+     *
+     * Get a list of vehicle logs for the authenticated user's barangay
+     *
+     * @authenticated
+     *
+     * @response {
+     *  "data": [
+     *    {
+     *      "id": 1,
+     *      "vehicle_id": 1,
+     *      "barangay_id": 1,
+     *      "status": "out",
+     *      "purpose": "Official Business",
+     *      "destination": "City Hall",
+     *      "driver_id": 1,
+     *      "entry_time": "2024-01-01 08:00:00",
+     *      "exit_time": "2024-01-01 17:00:00"
+     *    }
+     *  ]
+     * }
+     */
+    public function getVehicleLogs(Request $request)
+    {
+        $barangayId = $request->user()->barangay_id;
+
+        $vehicleLogs = VehicleLog::where('barangay_id', $barangayId)->get();
+
+        return response()->json($vehicleLogs);
+    }
 }

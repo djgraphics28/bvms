@@ -970,7 +970,7 @@ paths:
                 status:
                   type: string
                   description: 'The new status of the vehicle'
-                  example: unde
+                  example: qui
                   nullable: false
               required:
                 - status
@@ -988,7 +988,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the vehicle.'
-        example: 14
+        example: 20
         required: true
         schema:
           type: integer
@@ -1019,7 +1019,7 @@ paths:
         in: path
         name: vehicle
         description: 'The vehicle.'
-        example: 18
+        example: 1
         required: true
         schema:
           type: integer
@@ -1078,22 +1078,22 @@ paths:
                 status:
                   type: string
                   description: "The status of the vehicle (must be 'out')"
-                  example: ducimus
+                  example: qui
                   nullable: false
                 purpose:
                   type: string
                   description: 'The purpose of the trip'
-                  example: sit
+                  example: consequuntur
                   nullable: false
                 driver:
                   type: string
                   description: 'The ID of the driver'
-                  example: vero
+                  example: nihil
                   nullable: false
                 destination:
                   type: string
                   description: 'The destination of the trip'
-                  example: vel
+                  example: facere
                   nullable: false
               required:
                 - status
@@ -1105,7 +1105,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the vehicle'
-        example: id
+        example: totam
         required: true
         schema:
           type: string
@@ -1164,7 +1164,7 @@ paths:
                 status:
                   type: string
                   description: "The status of the vehicle (must be 'returned')"
-                  example: suscipit
+                  example: numquam
                   nullable: false
               required:
                 - status
@@ -1173,10 +1173,81 @@ paths:
         in: path
         name: id
         description: 'The ID of the vehicle'
-        example: aut
+        example: in
         required: true
         schema:
           type: string
+  /api/vehicle-logs:
+    get:
+      summary: 'Get Vehicle Logs'
+      operationId: getVehicleLogs
+      description: "Get a list of vehicle logs for the authenticated user's barangay"
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      vehicle_id: 1
+                      barangay_id: 1
+                      status: out
+                      purpose: 'Official Business'
+                      destination: 'City Hall'
+                      driver_id: 1
+                      entry_time: '2024-01-01 08:00:00'
+                      exit_time: '2024-01-01 17:00:00'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        vehicle_id: 1
+                        barangay_id: 1
+                        status: out
+                        purpose: 'Official Business'
+                        destination: 'City Hall'
+                        driver_id: 1
+                        entry_time: '2024-01-01 08:00:00'
+                        exit_time: '2024-01-01 17:00:00'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        vehicle_id:
+                          type: integer
+                          example: 1
+                        barangay_id:
+                          type: integer
+                          example: 1
+                        status:
+                          type: string
+                          example: out
+                        purpose:
+                          type: string
+                          example: 'Official Business'
+                        destination:
+                          type: string
+                          example: 'City Hall'
+                        driver_id:
+                          type: integer
+                          example: 1
+                        entry_time:
+                          type: string
+                          example: '2024-01-01 08:00:00'
+                        exit_time:
+                          type: string
+                          example: '2024-01-01 17:00:00'
+      tags:
+        - 'Vehicle Management'
 tags:
   -
     name: Authentication

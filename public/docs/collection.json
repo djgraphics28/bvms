@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "BVMS",
-        "_postman_id": "4f97779e-3698-43e7-91dc-b84a470c8591",
+        "_postman_id": "3a23a37d-9f6d-418d-aea8-7067d5a388c8",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -787,7 +787,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "14",
+                                    "value": "20",
                                     "description": "The ID of the vehicle."
                                 }
                             ]
@@ -843,7 +843,7 @@
                                 {
                                     "id": "vehicle",
                                     "key": "vehicle",
-                                    "value": "18",
+                                    "value": "1",
                                     "description": "The vehicle."
                                 }
                             ]
@@ -899,7 +899,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "est",
+                                    "value": "illo",
                                     "description": "The ID of the vehicle"
                                 }
                             ]
@@ -917,7 +917,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"status\":\"unde\"}"
+                            "raw": "{\"status\":\"qui\"}"
                         },
                         "description": "Update the status of a specific vehicle"
                     },
@@ -948,7 +948,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "20",
                                     "description": "The ID of the vehicle."
                                 }
                             ]
@@ -984,7 +984,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "id",
+                                    "value": "totam",
                                     "description": "The ID of the vehicle"
                                 }
                             ]
@@ -1002,7 +1002,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"status\":\"ducimus\",\"purpose\":\"sit\",\"driver\":\"vero\",\"destination\":\"vel\"}"
+                            "raw": "{\"status\":\"qui\",\"purpose\":\"consequuntur\",\"driver\":\"nihil\",\"destination\":\"facere\"}"
                         },
                         "description": "Create a new vehicle log entry when vehicle goes out"
                     },
@@ -1039,7 +1039,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "aut",
+                                    "value": "in",
                                     "description": "The ID of the vehicle"
                                 }
                             ]
@@ -1057,7 +1057,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"status\":\"suscipit\"}"
+                            "raw": "{\"status\":\"numquam\"}"
                         },
                         "description": "Update vehicle log entry when vehicle returns"
                     },
@@ -1078,6 +1078,38 @@
                             "header": [],
                             "code": 404,
                             "body": "{\n   \"error\": \"Vehicle not found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get Vehicle Logs",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/vehicle-logs",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/vehicle-logs"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get a list of vehicle logs for the authenticated user's barangay"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": [\n   {\n     \"id\": 1,\n     \"vehicle_id\": 1,\n     \"barangay_id\": 1,\n     \"status\": \"out\",\n     \"purpose\": \"Official Business\",\n     \"destination\": \"City Hall\",\n     \"driver_id\": 1,\n     \"entry_time\": \"2024-01-01 08:00:00\",\n     \"exit_time\": \"2024-01-01 17:00:00\"\n   }\n ]\n}",
                             "name": ""
                         }
                     ]
