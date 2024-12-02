@@ -49,7 +49,7 @@ endpoints:
   -
     httpMethods:
       - PUT
-    uri: api/profile
+    uri: api/update-password
     metadata:
       groupName: 'Profile Management'
       groupDescription: |-
@@ -57,8 +57,8 @@ endpoints:
         APIs for managing user profiles
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update User Profile'
-      description: "Updates the authenticated user's profile information"
+      title: 'Update User Password'
+      description: "Updates the authenticated user's password after validating the old password"
       authenticated: false
       custom: []
     headers:
@@ -69,42 +69,72 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
-        description: 'Name of the user'
-        required: false
-        example: eligendi
+      old_password:
+        name: old_password
+        description: "The user's current password."
+        required: true
+        example: currentpass123
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
-      email:
-        name: email
-        description: 'Email of the user'
-        required: false
-        example: loraine50@example.org
+      new_password:
+        name: new_password
+        description: 'The new password (min 8 characters).'
+        required: true
+        example: newpass123
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
-      phone:
-        name: phone
-        description: 'Phone number of the user'
-        required: false
-        example: molestias
+      new_password_confirmation:
+        name: new_password_confirmation
+        description: 'Confirmation of the new password.'
+        required: true
+        example: newpass123
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: eligendi
-      email: loraine50@example.org
-      phone: molestias
+      old_password: currentpass123
+      new_password: newpass123
+      new_password_confirmation: newpass123
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "status": true,
+            "message": "Password updated successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "status": false,
+            "message": "Old password is incorrect"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 500
+        content: |-
+          {
+            "status": false,
+            "message": "Failed to update password"
+          }
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth: []
     controller: null

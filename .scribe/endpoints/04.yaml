@@ -251,14 +251,14 @@ endpoints:
         name: id
         description: 'The ID of the vehicle'
         required: true
-        example: et
+        example: aperiam
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: et
+      id: aperiam
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -266,14 +266,14 @@ endpoints:
         name: status
         description: 'The new status of the vehicle'
         required: true
-        example: saepe
+        example: harum
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      status: saepe
+      status: harum
     fileParameters: []
     responses:
       -
@@ -366,14 +366,14 @@ endpoints:
         name: id
         description: 'The ID of the vehicle'
         required: true
-        example: voluptas
+        example: mollitia
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: voluptas
+      id: mollitia
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -381,7 +381,7 @@ endpoints:
         name: status
         description: "The status of the vehicle (must be 'out')"
         required: true
-        example: quos
+        example: nemo
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -391,7 +391,7 @@ endpoints:
         name: purpose
         description: 'The purpose of the trip'
         required: true
-        example: molestiae
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -401,7 +401,7 @@ endpoints:
         name: driver
         description: 'The ID of the driver'
         required: true
-        example: et
+        example: eaque
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -411,17 +411,17 @@ endpoints:
         name: destination
         description: 'The destination of the trip'
         required: true
-        example: velit
+        example: repudiandae
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      status: quos
-      purpose: molestiae
-      driver: et
-      destination: velit
+      status: nemo
+      purpose: et
+      driver: eaque
+      destination: repudiandae
     fileParameters: []
     responses:
       -
@@ -480,14 +480,14 @@ endpoints:
         name: id
         description: 'The ID of the vehicle'
         required: true
-        example: qui
+        example: officiis
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: qui
+      id: officiis
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -495,14 +495,14 @@ endpoints:
         name: status
         description: "The status of the vehicle (must be 'returned')"
         required: true
-        example: quibusdam
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      status: quibusdam
+      status: et
     fileParameters: []
     responses:
       -

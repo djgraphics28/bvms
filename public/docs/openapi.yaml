@@ -625,36 +625,89 @@ paths:
       tags:
         - 'Profile Management'
       security: []
+  /api/update-password:
     put:
-      summary: 'Update User Profile'
-      operationId: updateUserProfile
-      description: "Updates the authenticated user's profile information"
+      summary: 'Update User Password'
+      operationId: updateUserPassword
+      description: "Updates the authenticated user's password after validating the old password"
       parameters: []
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'Password updated successfully'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Password updated successfully'
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  message: 'Old password is incorrect'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Old password is incorrect'
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: false
+                  message: 'Failed to update password'
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Failed to update password'
       tags:
         - 'Profile Management'
       requestBody:
-        required: false
+        required: true
         content:
           application/json:
             schema:
               type: object
               properties:
-                name:
+                old_password:
                   type: string
-                  description: 'Name of the user'
-                  example: eligendi
+                  description: "The user's current password."
+                  example: currentpass123
                   nullable: false
-                email:
+                new_password:
                   type: string
-                  description: 'Email of the user'
-                  example: loraine50@example.org
+                  description: 'The new password (min 8 characters).'
+                  example: newpass123
                   nullable: false
-                phone:
+                new_password_confirmation:
                   type: string
-                  description: 'Phone number of the user'
-                  example: molestias
+                  description: 'Confirmation of the new password.'
+                  example: newpass123
                   nullable: false
+              required:
+                - old_password
+                - new_password
+                - new_password_confirmation
       security: []
   /api/drivers:
     get:
@@ -924,7 +977,7 @@ paths:
                 status:
                   type: string
                   description: 'The new status of the vehicle'
-                  example: saepe
+                  example: harum
                   nullable: false
               required:
                 - status
@@ -1032,22 +1085,22 @@ paths:
                 status:
                   type: string
                   description: "The status of the vehicle (must be 'out')"
-                  example: quos
+                  example: nemo
                   nullable: false
                 purpose:
                   type: string
                   description: 'The purpose of the trip'
-                  example: molestiae
+                  example: et
                   nullable: false
                 driver:
                   type: string
                   description: 'The ID of the driver'
-                  example: et
+                  example: eaque
                   nullable: false
                 destination:
                   type: string
                   description: 'The destination of the trip'
-                  example: velit
+                  example: repudiandae
                   nullable: false
               required:
                 - status
@@ -1059,7 +1112,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the vehicle'
-        example: voluptas
+        example: mollitia
         required: true
         schema:
           type: string
@@ -1118,7 +1171,7 @@ paths:
                 status:
                   type: string
                   description: "The status of the vehicle (must be 'returned')"
-                  example: quibusdam
+                  example: et
                   nullable: false
               required:
                 - status
@@ -1127,7 +1180,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the vehicle'
-        example: qui
+        example: officiis
         required: true
         schema:
           type: string

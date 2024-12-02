@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "BVMS Admin",
-        "_postman_id": "2a3b2cef-1d5a-4799-86ce-9d834457c49c",
+        "_postman_id": "0ddef8d8-e918-4ed3-9faf-db43326b2b90",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -507,13 +507,13 @@
                     ]
                 },
                 {
-                    "name": "Update User Profile",
+                    "name": "Update User Password",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/profile",
+                            "path": "api\/update-password",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/profile"
+                            "raw": "{{baseUrl}}\/api\/update-password"
                         },
                         "method": "PUT",
                         "header": [
@@ -528,14 +528,33 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"eligendi\",\"email\":\"loraine50@example.org\",\"phone\":\"molestias\"}"
+                            "raw": "{\"old_password\":\"currentpass123\",\"new_password\":\"newpass123\",\"new_password_confirmation\":\"newpass123\"}"
                         },
-                        "description": "Updates the authenticated user's profile information",
+                        "description": "Updates the authenticated user's password after validating the old password",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"status\": true,\n  \"message\": \"Password updated successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n  \"status\": false,\n  \"message\": \"Old password is incorrect\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 500,
+                            "body": "{\n  \"status\": false,\n  \"message\": \"Failed to update password\"\n}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },
@@ -880,7 +899,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "et",
+                                    "value": "aperiam",
                                     "description": "The ID of the vehicle"
                                 }
                             ]
@@ -898,7 +917,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"status\":\"saepe\"}"
+                            "raw": "{\"status\":\"harum\"}"
                         },
                         "description": "Update the status of a specific vehicle"
                     },
@@ -965,7 +984,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "voluptas",
+                                    "value": "mollitia",
                                     "description": "The ID of the vehicle"
                                 }
                             ]
@@ -983,7 +1002,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"status\":\"quos\",\"purpose\":\"molestiae\",\"driver\":\"et\",\"destination\":\"velit\"}"
+                            "raw": "{\"status\":\"nemo\",\"purpose\":\"et\",\"driver\":\"eaque\",\"destination\":\"repudiandae\"}"
                         },
                         "description": "Create a new vehicle log entry when vehicle goes out"
                     },
@@ -1020,7 +1039,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "qui",
+                                    "value": "officiis",
                                     "description": "The ID of the vehicle"
                                 }
                             ]
@@ -1038,7 +1057,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"status\":\"quibusdam\"}"
+                            "raw": "{\"status\":\"et\"}"
                         },
                         "description": "Update vehicle log entry when vehicle returns"
                     },

@@ -125,8 +125,8 @@
                                                     <li class="tocify-item level-2" data-unique="profile-management-GETapi-profile">
                                 <a href="#profile-management-GETapi-profile">Get User Profile</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="profile-management-PUTapi-profile">
-                                <a href="#profile-management-PUTapi-profile">Update User Profile</a>
+                                                                                <li class="tocify-item level-2" data-unique="profile-management-PUTapi-update-password">
+                                <a href="#profile-management-PUTapi-update-password">Update User Password</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -1954,33 +1954,33 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="profile-management-PUTapi-profile">Update User Profile</h2>
+                    <h2 id="profile-management-PUTapi-update-password">Update User Password</h2>
 
 <p>
 </p>
 
-<p>Updates the authenticated user's profile information</p>
+<p>Updates the authenticated user's password after validating the old password</p>
 
-<span id="example-requests-PUTapi-profile">
+<span id="example-requests-PUTapi-update-password">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://bvms.online/api/profile" \
+    "https://bvms.online/api/update-password" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"eligendi\",
-    \"email\": \"loraine50@example.org\",
-    \"phone\": \"molestias\"
+    \"old_password\": \"currentpass123\",
+    \"new_password\": \"newpass123\",
+    \"new_password_confirmation\": \"newpass123\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://bvms.online/api/profile"
+    "https://bvms.online/api/update-password"
 );
 
 const headers = {
@@ -1989,9 +1989,9 @@ const headers = {
 };
 
 let body = {
-    "name": "eligendi",
-    "email": "loraine50@example.org",
-    "phone": "molestias"
+    "old_password": "currentpass123",
+    "new_password": "newpass123",
+    "new_password_confirmation": "newpass123"
 };
 
 fetch(url, {
@@ -2002,45 +2002,75 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-PUTapi-profile">
-</span>
-<span id="execution-results-PUTapi-profile" hidden>
+<span id="example-responses-PUTapi-update-password">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: true,
+    &quot;message&quot;: &quot;Password updated successfully&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: false,
+    &quot;message&quot;: &quot;Old password is incorrect&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: false,
+    &quot;message&quot;: &quot;Failed to update password&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-update-password" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-PUTapi-profile"></span>:
+                id="execution-response-status-PUTapi-update-password"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-PUTapi-profile"
+    <pre class="json"><code id="execution-response-content-PUTapi-update-password"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-PUTapi-profile" hidden>
+<span id="execution-error-PUTapi-update-password" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PUTapi-profile">
+    <pre><code id="execution-error-message-PUTapi-update-password">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-PUTapi-profile" data-method="PUT"
-      data-path="api/profile"
+<form id="form-PUTapi-update-password" data-method="PUT"
+      data-path="api/update-password"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PUTapi-profile', this);">
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-update-password', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-profile"
-                    onclick="tryItOut('PUTapi-profile');">Try it out ⚡
+                    id="btn-tryout-PUTapi-update-password"
+                    onclick="tryItOut('PUTapi-update-password');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-profile"
-                    onclick="cancelTryOut('PUTapi-profile');" hidden>Cancel 🛑
+                    id="btn-canceltryout-PUTapi-update-password"
+                    onclick="cancelTryOut('PUTapi-update-password');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-profile"
+                    id="btn-executetryout-PUTapi-update-password"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -2048,7 +2078,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-darkblue">PUT</small>
-            <b><code>api/profile</code></b>
+            <b><code>api/update-password</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -2056,7 +2086,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="PUTapi-profile"
+                              name="Content-Type"                data-endpoint="PUTapi-update-password"
                value="application/json"
                data-component="header">
     <br>
@@ -2067,7 +2097,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="PUTapi-profile"
+                              name="Accept"                data-endpoint="PUTapi-update-password"
                value="application/json"
                data-component="header">
     <br>
@@ -2075,37 +2105,37 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                                 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>old_password</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
                 <input type="text" style="display: none"
-                              name="name"                data-endpoint="PUTapi-profile"
-               value="eligendi"
+                              name="old_password"                data-endpoint="PUTapi-update-password"
+               value="currentpass123"
                data-component="body">
     <br>
-<p>Name of the user Example: <code>eligendi</code></p>
+<p>The user's current password. Example: <code>currentpass123</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>new_password</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
                 <input type="text" style="display: none"
-                              name="email"                data-endpoint="PUTapi-profile"
-               value="loraine50@example.org"
+                              name="new_password"                data-endpoint="PUTapi-update-password"
+               value="newpass123"
                data-component="body">
     <br>
-<p>Email of the user Example: <code>loraine50@example.org</code></p>
+<p>The new password (min 8 characters). Example: <code>newpass123</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>new_password_confirmation</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
                 <input type="text" style="display: none"
-                              name="phone"                data-endpoint="PUTapi-profile"
-               value="molestias"
+                              name="new_password_confirmation"                data-endpoint="PUTapi-update-password"
+               value="newpass123"
                data-component="body">
     <br>
-<p>Phone number of the user Example: <code>molestias</code></p>
+<p>Confirmation of the new password. Example: <code>newpass123</code></p>
         </div>
         </form>
 
@@ -3194,18 +3224,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://bvms.online/api/vehicles/et" \
+    "https://bvms.online/api/vehicles/aperiam" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"status\": \"saepe\"
+    \"status\": \"harum\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://bvms.online/api/vehicles/et"
+    "https://bvms.online/api/vehicles/aperiam"
 );
 
 const headers = {
@@ -3214,7 +3244,7 @@ const headers = {
 };
 
 let body = {
-    "status": "saepe"
+    "status": "harum"
 };
 
 fetch(url, {
@@ -3325,10 +3355,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-vehicles--id-"
-               value="et"
+               value="aperiam"
                data-component="url">
     <br>
-<p>The ID of the vehicle Example: <code>et</code></p>
+<p>The ID of the vehicle Example: <code>aperiam</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3337,10 +3367,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-vehicles--id-"
-               value="saepe"
+               value="harum"
                data-component="body">
     <br>
-<p>The new status of the vehicle Example: <code>saepe</code></p>
+<p>The new status of the vehicle Example: <code>harum</code></p>
         </div>
         </form>
 
@@ -3478,21 +3508,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://bvms.online/api/vehicle-login/voluptas" \
+    "https://bvms.online/api/vehicle-login/mollitia" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"status\": \"quos\",
-    \"purpose\": \"molestiae\",
-    \"driver\": \"et\",
-    \"destination\": \"velit\"
+    \"status\": \"nemo\",
+    \"purpose\": \"et\",
+    \"driver\": \"eaque\",
+    \"destination\": \"repudiandae\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://bvms.online/api/vehicle-login/voluptas"
+    "https://bvms.online/api/vehicle-login/mollitia"
 );
 
 const headers = {
@@ -3501,10 +3531,10 @@ const headers = {
 };
 
 let body = {
-    "status": "quos",
-    "purpose": "molestiae",
-    "driver": "et",
-    "destination": "velit"
+    "status": "nemo",
+    "purpose": "et",
+    "driver": "eaque",
+    "destination": "repudiandae"
 };
 
 fetch(url, {
@@ -3620,10 +3650,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="POSTapi-vehicle-login--id-"
-               value="voluptas"
+               value="mollitia"
                data-component="url">
     <br>
-<p>The ID of the vehicle Example: <code>voluptas</code></p>
+<p>The ID of the vehicle Example: <code>mollitia</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3632,10 +3662,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="POSTapi-vehicle-login--id-"
-               value="quos"
+               value="nemo"
                data-component="body">
     <br>
-<p>The status of the vehicle (must be 'out') Example: <code>quos</code></p>
+<p>The status of the vehicle (must be 'out') Example: <code>nemo</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>purpose</code></b>&nbsp;&nbsp;
@@ -3643,10 +3673,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="purpose"                data-endpoint="POSTapi-vehicle-login--id-"
-               value="molestiae"
+               value="et"
                data-component="body">
     <br>
-<p>The purpose of the trip Example: <code>molestiae</code></p>
+<p>The purpose of the trip Example: <code>et</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>driver</code></b>&nbsp;&nbsp;
@@ -3654,10 +3684,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="driver"                data-endpoint="POSTapi-vehicle-login--id-"
-               value="et"
+               value="eaque"
                data-component="body">
     <br>
-<p>The ID of the driver Example: <code>et</code></p>
+<p>The ID of the driver Example: <code>eaque</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>destination</code></b>&nbsp;&nbsp;
@@ -3665,10 +3695,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="destination"                data-endpoint="POSTapi-vehicle-login--id-"
-               value="velit"
+               value="repudiandae"
                data-component="body">
     <br>
-<p>The destination of the trip Example: <code>velit</code></p>
+<p>The destination of the trip Example: <code>repudiandae</code></p>
         </div>
         </form>
 
@@ -3686,18 +3716,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://bvms.online/api/vehicle-logout/qui" \
+    "https://bvms.online/api/vehicle-logout/officiis" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"status\": \"quibusdam\"
+    \"status\": \"et\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://bvms.online/api/vehicle-logout/qui"
+    "https://bvms.online/api/vehicle-logout/officiis"
 );
 
 const headers = {
@@ -3706,7 +3736,7 @@ const headers = {
 };
 
 let body = {
-    "status": "quibusdam"
+    "status": "et"
 };
 
 fetch(url, {
@@ -3822,10 +3852,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-vehicle-logout--id-"
-               value="qui"
+               value="officiis"
                data-component="url">
     <br>
-<p>The ID of the vehicle Example: <code>qui</code></p>
+<p>The ID of the vehicle Example: <code>officiis</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3834,10 +3864,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-vehicle-logout--id-"
-               value="quibusdam"
+               value="et"
                data-component="body">
     <br>
-<p>The status of the vehicle (must be 'returned') Example: <code>quibusdam</code></p>
+<p>The status of the vehicle (must be 'returned') Example: <code>et</code></p>
         </div>
         </form>
 

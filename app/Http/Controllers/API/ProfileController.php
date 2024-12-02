@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * @group Profile Management
@@ -30,26 +31,61 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update User Profile
+     * Update User Password
      *
-     * Updates the authenticated user's profile information
+     * Updates the authenticated user's password after validating the old password
      *
-     * @bodyParam name string Name of the user
-     * @bodyParam email string Email of the user
-     * @bodyParam phone string Phone number of the user
+     * @bodyParam old_password string required The user's current password. Example: currentpass123
+     * @bodyParam new_password string required The new password (min 8 characters). Example: newpass123
+     * @bodyParam new_password_confirmation string required Confirmation of the new password. Example: newpass123
      *
+     * @response 200 {
+     *   "status": true,
+     *   "message": "Password updated successfully"
+     * }
+     *
+     * @response 400 {
+     *   "status": false,
+     *   "message": "Old password is incorrect"
+     * }
+     *
+     * @response 500 {
+     *   "status": false,
+     *   "message": "Failed to update password"
+     * }
+     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function updateProfile(Request $request)
+    public function updatePassword(Request $request)
     {
-        // if user_type is driver
-        // if (auth()->user()->type == 'driver') {
-        //     $driver = auth()->user()->driverDetail()->first();
-        //     $driver->update($request->all());
-        //     return $driver;
-        // } else {
-        //     auth()->user()->update($request->all());
-        //     return auth()->user();
-        // }
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|min:8|confirmed',
+            'new_password_confirmation' => 'required'
+        ]);
+
+        if (!Hash::check($request->old_password, auth()->user()->password)) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Old password is incorrect'
+            ], 400);
+        }
+
+        try {
+            auth()->user()->update([
+                'password' => Hash::make($request->new_password)
+            ]);
+
+            return response()->json([
+                'status' => true,
+                'message' => 'Password updated successfully'
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Failed to update password'
+            ], 500);
+        }
     }
 }
