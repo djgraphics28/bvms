@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "BVMS Admin",
-        "_postman_id": "4fbdcf96-3f44-4c73-83f2-ceb27fd0f22f",
+        "_postman_id": "2a3b2cef-1d5a-4799-86ce-9d834457c49c",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -416,6 +416,41 @@
                             "name": ""
                         }
                     ]
+                },
+                {
+                    "name": "Get all incident categories.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/incident-categories",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/incident-categories"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"Vehicular Accident\",\n      \"description\": \"vehicle accident\",\n    }\n  ]\n}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },
@@ -493,7 +528,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"et\",\"email\":\"hnitzsche@example.net\",\"phone\":\"distinctio\"}"
+                            "raw": "{\"name\":\"eligendi\",\"email\":\"loraine50@example.org\",\"phone\":\"molestias\"}"
                         },
                         "description": "Updates the authenticated user's profile information",
                         "auth": {
@@ -569,6 +604,41 @@
                             "code": 200,
                             "body": "{\n \"id\": 1,\n \"name\": \"Jane Doe\",\n \"email\": \"jane@example.com\",\n \"user_type\": \"admin\",\n \"barangay_id\": 1\n}",
                             "name": "success"
+                        }
+                    ]
+                },
+                {
+                    "name": "Create Driver Account",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/create-driver-account",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/create-driver-account"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"first_name\":\"John\",\"last_name\":\"Doe\",\"email\":\"john.doe@example.com\",\"driver_license_number\":\"ABC123XYZ\",\"middle_name\":\"Smith\"}"
+                        },
+                        "description": "Creates a new driver account with user and driver details."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n  \"message\": \"Driver account created successfully\"\n}",
+                            "name": ""
                         }
                     ]
                 }
@@ -810,7 +880,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "rerum",
+                                    "value": "et",
                                     "description": "The ID of the vehicle"
                                 }
                             ]
@@ -828,7 +898,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"status\":\"omnis\"}"
+                            "raw": "{\"status\":\"saepe\"}"
                         },
                         "description": "Update the status of a specific vehicle"
                     },
@@ -882,6 +952,116 @@
                         }
                     },
                     "response": []
+                },
+                {
+                    "name": "Log Vehicle Out",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/vehicle-login\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/vehicle-login\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "voluptas",
+                                    "description": "The ID of the vehicle"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"status\":\"quos\",\"purpose\":\"molestiae\",\"driver\":\"et\",\"destination\":\"velit\"}"
+                        },
+                        "description": "Create a new vehicle log entry when vehicle goes out"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"message\": \"Vehicle logged out successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n   \"error\": \"Vehicle already go out today\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n   \"error\": \"Vehicle not found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Log Vehicle Return",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/vehicle-logout\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/vehicle-logout\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "qui",
+                                    "description": "The ID of the vehicle"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"status\":\"quibusdam\"}"
+                        },
+                        "description": "Update vehicle log entry when vehicle returns"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"message\": \"Vehicle return logged successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n   \"error\": \"No active entry found for this vehicle today\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n   \"error\": \"Vehicle not found\"\n}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         }

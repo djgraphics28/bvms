@@ -251,14 +251,14 @@ endpoints:
         name: id
         description: 'The ID of the vehicle'
         required: true
-        example: rerum
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: rerum
+      id: et
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -266,14 +266,14 @@ endpoints:
         name: status
         description: 'The new status of the vehicle'
         required: true
-        example: omnis
+        example: saepe
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      status: omnis
+      status: saepe
     fileParameters: []
     responses:
       -
@@ -337,6 +337,201 @@ endpoints:
     cleanBodyParameters: []
     fileParameters: []
     responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/vehicle-login/{id}'
+    metadata:
+      groupName: 'Vehicle Management'
+      groupDescription: |-
+
+        APIs for managing vehicles
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Log Vehicle Out'
+      description: 'Create a new vehicle log entry when vehicle goes out'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the vehicle'
+        required: true
+        example: voluptas
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: voluptas
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      status:
+        name: status
+        description: "The status of the vehicle (must be 'out')"
+        required: true
+        example: quos
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      purpose:
+        name: purpose
+        description: 'The purpose of the trip'
+        required: true
+        example: molestiae
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      driver:
+        name: driver
+        description: 'The ID of the driver'
+        required: true
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      destination:
+        name: destination
+        description: 'The destination of the trip'
+        required: true
+        example: velit
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      status: quos
+      purpose: molestiae
+      driver: et
+      destination: velit
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+             "message": "Vehicle logged out successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+             "error": "Vehicle already go out today"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+             "error": "Vehicle not found"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/vehicle-logout/{id}'
+    metadata:
+      groupName: 'Vehicle Management'
+      groupDescription: |-
+
+        APIs for managing vehicles
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Log Vehicle Return'
+      description: 'Update vehicle log entry when vehicle returns'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the vehicle'
+        required: true
+        example: qui
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: qui
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      status:
+        name: status
+        description: "The status of the vehicle (must be 'returned')"
+        required: true
+        example: quibusdam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      status: quibusdam
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+             "message": "Vehicle return logged successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+             "error": "No active entry found for this vehicle today"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+             "error": "Vehicle not found"
+          }
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth: []
     controller: null

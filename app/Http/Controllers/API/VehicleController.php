@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\Vehicle;
+use App\Models\VehicleLog;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\API\VehicleResource;
@@ -90,18 +91,18 @@ class VehicleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-         // Find the incident by ID
-         $vehicle = Vehicle::find($id);
+        // Find the incident by ID
+        $vehicle = Vehicle::find($id);
 
-         // If not found, return 404
-         if (!$vehicle) {
-             return response()->json(['error' => 'Vehicle not found'], 404);
-         }
+        // If not found, return 404
+        if (!$vehicle) {
+            return response()->json(['error' => 'Vehicle not found'], 404);
+        }
 
-         // Update the incident
-         $vehicle->update(['status', $request->status]);
+        // Update the incident
+        $vehicle->update(['status', $request->status]);
 
-         return response()->json(['message' => 'Vehicle Status updated successfully']);
+        return response()->json(['message' => 'Vehicle Status updated successfully']);
     }
 
     /**
@@ -110,5 +111,128 @@ class VehicleController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    /**
+     * Log Vehicle Out
+     *
+     * Create a new vehicle log entry when vehicle goes out
+     *
+     * @authenticated
+     * @urlParam id required The ID of the vehicle
+     * @bodyParam status string required The status of the vehicle (must be 'out')
+     * @bodyParam purpose string required The purpose of the trip
+     * @bodyParam driver string required The ID of the driver
+     * @bodyParam destination string required The destination of the trip
+     *
+     * @response {
+     *    "message": "Vehicle logged out successfully"
+     * }
+     *
+     * @response 404 {
+     *    "error": "Vehicle not found"
+     * }
+     *
+     * @response 400 {
+     *    "error": "Vehicle already go out today"
+     * }
+     */
+    public function vehicleLogIn(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required',
+            'purpose' => 'required',
+            'driver' => 'required',
+            'destination' => 'required',
+        ]);
+
+        $vehicle = Vehicle::find($id);
+
+        // If not found, return 404
+        if (!$vehicle) {
+            return response()->json(['error' => 'Vehicle not found'], 404);
+        }
+
+        // Check if there's an existing log entry for today
+        $existingLog = VehicleLog::where('vehicle_id', $id)
+            ->whereDate('entry_time', today())
+            ->latest()
+            ->first();
+
+        if ($request->status === 'out') {
+            // Check if there's an entry log without exit time
+            if ($existingLog && $existingLog->status === 'out') {
+                return response()->json(['error' => 'Vehicle already go out today'], 400);
+            }
+
+            // Create new log entry
+            VehicleLog::create([
+                'vehicle_id' => $id,
+                'status' => $request->status,
+                'purpose' => $request->purpose,
+                'destination' => $request->destination,
+                'driver_id' => $request->driver,
+                'barangay_id' => $request->user()->barangay_id,
+                'entry_time' => now()
+            ]);
+
+            return response()->json(['message' => 'Vehicle logged out successfully']);
+        }
+    }
+
+    /**
+     * Log Vehicle Return
+     *
+     * Update vehicle log entry when vehicle returns
+     *
+     * @authenticated
+     * @urlParam id required The ID of the vehicle
+     * @bodyParam status string required The status of the vehicle (must be 'returned')
+     *
+     * @response {
+     *    "message": "Vehicle return logged successfully"
+     * }
+     *
+     * @response 404 {
+     *    "error": "Vehicle not found"
+     * }
+     *
+     * @response 400 {
+     *    "error": "No active entry found for this vehicle today"
+     * }
+     */
+    public function vehicleLogOut(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required',
+        ]);
+
+        $vehicle = Vehicle::find($id);
+
+        // If not found, return 404
+        if (!$vehicle) {
+            return response()->json(['error' => 'Vehicle not found'], 404);
+        }
+
+        // Check if there's an existing log entry for today
+        $existingLog = VehicleLog::where('vehicle_id', $id)
+            ->whereDate('entry_time', today())
+            ->latest()
+            ->first();
+
+        if ($request->status === 'returned') {
+            // Check if there's an entry log without exit time
+            if (!$existingLog || $existingLog->status !== 'out') {
+                return response()->json(['error' => 'No active entry found for this vehicle today'], 400);
+            }
+
+            // Update exit time for existing log
+            $existingLog->update([
+                'status' => 'returned',
+                'exit_time' => now()
+            ]);
+
+            return response()->json(['message' => 'Vehicle return logged successfully']);
+        }
     }
 }

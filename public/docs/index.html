@@ -112,6 +112,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="incident-management-DELETEapi-incidents--id-">
                                 <a href="#incident-management-DELETEapi-incidents--id-">Delete a specific incident.</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="incident-management-GETapi-incident-categories">
+                                <a href="#incident-management-GETapi-incident-categories">Get all incident categories.</a>
+                            </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-profile-management" class="tocify-header">
@@ -137,6 +140,9 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="user-management-GETapi-admins">
                                 <a href="#user-management-GETapi-admins">Get Admins List</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-management-POSTapi-create-driver-account">
+                                <a href="#user-management-POSTapi-create-driver-account">Create Driver Account</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -165,6 +171,12 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="vehicle-management-DELETEapi-vehicles--id-">
                                 <a href="#vehicle-management-DELETEapi-vehicles--id-">Remove the specified resource from storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="vehicle-management-POSTapi-vehicle-login--id-">
+                                <a href="#vehicle-management-POSTapi-vehicle-login--id-">Log Vehicle Out</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="vehicle-management-PUTapi-vehicle-logout--id-">
+                                <a href="#vehicle-management-PUTapi-vehicle-logout--id-">Log Vehicle Return</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -1691,6 +1703,129 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                    <h2 id="incident-management-GETapi-incident-categories">Get all incident categories.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-incident-categories">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://bvms.online/api/incident-categories" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://bvms.online/api/incident-categories"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-incident-categories">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;Vehicular Accident&quot;,
+      &quot;description&quot;: &quot;vehicle accident&quot;,
+    }
+  ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-incident-categories" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-incident-categories"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-incident-categories"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-incident-categories" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-incident-categories">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-incident-categories" data-method="GET"
+      data-path="api/incident-categories"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-incident-categories', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-incident-categories"
+                    onclick="tryItOut('GETapi-incident-categories');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-incident-categories"
+                    onclick="cancelTryOut('GETapi-incident-categories');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-incident-categories"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/incident-categories</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-incident-categories"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-incident-categories"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
                 <h1 id="profile-management">Profile Management</h1>
 
     <p>APIs for managing user profiles</p>
@@ -1836,9 +1971,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"et\",
-    \"email\": \"hnitzsche@example.net\",
-    \"phone\": \"distinctio\"
+    \"name\": \"eligendi\",
+    \"email\": \"loraine50@example.org\",
+    \"phone\": \"molestias\"
 }"
 </code></pre></div>
 
@@ -1854,9 +1989,9 @@ const headers = {
 };
 
 let body = {
-    "name": "et",
-    "email": "hnitzsche@example.net",
-    "phone": "distinctio"
+    "name": "eligendi",
+    "email": "loraine50@example.org",
+    "phone": "molestias"
 };
 
 fetch(url, {
@@ -1945,10 +2080,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-profile"
-               value="et"
+               value="eligendi"
                data-component="body">
     <br>
-<p>Name of the user Example: <code>et</code></p>
+<p>Name of the user Example: <code>eligendi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -1956,10 +2091,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="PUTapi-profile"
-               value="hnitzsche@example.net"
+               value="loraine50@example.org"
                data-component="body">
     <br>
-<p>Email of the user Example: <code>hnitzsche@example.net</code></p>
+<p>Email of the user Example: <code>loraine50@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -1967,10 +2102,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="PUTapi-profile"
-               value="distinctio"
+               value="molestias"
                data-component="body">
     <br>
-<p>Phone number of the user Example: <code>distinctio</code></p>
+<p>Phone number of the user Example: <code>molestias</code></p>
         </div>
         </form>
 
@@ -2221,6 +2356,197 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>application/json</code></p>
             </div>
                         </form>
+
+                    <h2 id="user-management-POSTapi-create-driver-account">Create Driver Account</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Creates a new driver account with user and driver details.</p>
+
+<span id="example-requests-POSTapi-create-driver-account">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://bvms.online/api/create-driver-account" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"first_name\": \"John\",
+    \"last_name\": \"Doe\",
+    \"email\": \"john.doe@example.com\",
+    \"driver_license_number\": \"ABC123XYZ\",
+    \"middle_name\": \"Smith\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://bvms.online/api/create-driver-account"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john.doe@example.com",
+    "driver_license_number": "ABC123XYZ",
+    "middle_name": "Smith"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-create-driver-account">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Driver account created successfully&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-create-driver-account" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-create-driver-account"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-create-driver-account"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-create-driver-account" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-create-driver-account">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-create-driver-account" data-method="POST"
+      data-path="api/create-driver-account"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-create-driver-account', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-create-driver-account"
+                    onclick="tryItOut('POSTapi-create-driver-account');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-create-driver-account"
+                    onclick="cancelTryOut('POSTapi-create-driver-account');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-create-driver-account"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/create-driver-account</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-create-driver-account"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-create-driver-account"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>first_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="first_name"                data-endpoint="POSTapi-create-driver-account"
+               value="John"
+               data-component="body">
+    <br>
+<p>The first name of the driver. Example: <code>John</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="last_name"                data-endpoint="POSTapi-create-driver-account"
+               value="Doe"
+               data-component="body">
+    <br>
+<p>The last name of the driver. Example: <code>Doe</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="POSTapi-create-driver-account"
+               value="john.doe@example.com"
+               data-component="body">
+    <br>
+<p>The email address of the driver. Must be unique. Example: <code>john.doe@example.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>driver_license_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="driver_license_number"                data-endpoint="POSTapi-create-driver-account"
+               value="ABC123XYZ"
+               data-component="body">
+    <br>
+<p>The driver's license number. Example: <code>ABC123XYZ</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>middle_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="middle_name"                data-endpoint="POSTapi-create-driver-account"
+               value="Smith"
+               data-component="body">
+    <br>
+<p>optional The middle name of the driver. Example: <code>Smith</code></p>
+        </div>
+        </form>
 
                 <h1 id="vehicle-management">Vehicle Management</h1>
 
@@ -2868,18 +3194,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://bvms.online/api/vehicles/rerum" \
+    "https://bvms.online/api/vehicles/et" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"status\": \"omnis\"
+    \"status\": \"saepe\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://bvms.online/api/vehicles/rerum"
+    "https://bvms.online/api/vehicles/et"
 );
 
 const headers = {
@@ -2888,7 +3214,7 @@ const headers = {
 };
 
 let body = {
-    "status": "omnis"
+    "status": "saepe"
 };
 
 fetch(url, {
@@ -2999,10 +3325,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-vehicles--id-"
-               value="rerum"
+               value="et"
                data-component="url">
     <br>
-<p>The ID of the vehicle Example: <code>rerum</code></p>
+<p>The ID of the vehicle Example: <code>et</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3011,10 +3337,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-vehicles--id-"
-               value="omnis"
+               value="saepe"
                data-component="body">
     <br>
-<p>The new status of the vehicle Example: <code>omnis</code></p>
+<p>The new status of the vehicle Example: <code>saepe</code></p>
         </div>
         </form>
 
@@ -3137,6 +3463,383 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>The ID of the vehicle. Example: <code>1</code></p>
             </div>
                     </form>
+
+                    <h2 id="vehicle-management-POSTapi-vehicle-login--id-">Log Vehicle Out</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Create a new vehicle log entry when vehicle goes out</p>
+
+<span id="example-requests-POSTapi-vehicle-login--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://bvms.online/api/vehicle-login/voluptas" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"status\": \"quos\",
+    \"purpose\": \"molestiae\",
+    \"driver\": \"et\",
+    \"destination\": \"velit\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://bvms.online/api/vehicle-login/voluptas"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "status": "quos",
+    "purpose": "molestiae",
+    "driver": "et",
+    "destination": "velit"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-vehicle-login--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Vehicle logged out successfully&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;Vehicle already go out today&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;Vehicle not found&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-vehicle-login--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-vehicle-login--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-vehicle-login--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-vehicle-login--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-vehicle-login--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-vehicle-login--id-" data-method="POST"
+      data-path="api/vehicle-login/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-vehicle-login--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-vehicle-login--id-"
+                    onclick="tryItOut('POSTapi-vehicle-login--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-vehicle-login--id-"
+                    onclick="cancelTryOut('POSTapi-vehicle-login--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-vehicle-login--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/vehicle-login/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-vehicle-login--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-vehicle-login--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="POSTapi-vehicle-login--id-"
+               value="voluptas"
+               data-component="url">
+    <br>
+<p>The ID of the vehicle Example: <code>voluptas</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="status"                data-endpoint="POSTapi-vehicle-login--id-"
+               value="quos"
+               data-component="body">
+    <br>
+<p>The status of the vehicle (must be 'out') Example: <code>quos</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>purpose</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="purpose"                data-endpoint="POSTapi-vehicle-login--id-"
+               value="molestiae"
+               data-component="body">
+    <br>
+<p>The purpose of the trip Example: <code>molestiae</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>driver</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="driver"                data-endpoint="POSTapi-vehicle-login--id-"
+               value="et"
+               data-component="body">
+    <br>
+<p>The ID of the driver Example: <code>et</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>destination</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="destination"                data-endpoint="POSTapi-vehicle-login--id-"
+               value="velit"
+               data-component="body">
+    <br>
+<p>The destination of the trip Example: <code>velit</code></p>
+        </div>
+        </form>
+
+                    <h2 id="vehicle-management-PUTapi-vehicle-logout--id-">Log Vehicle Return</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Update vehicle log entry when vehicle returns</p>
+
+<span id="example-requests-PUTapi-vehicle-logout--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "https://bvms.online/api/vehicle-logout/qui" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"status\": \"quibusdam\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://bvms.online/api/vehicle-logout/qui"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "status": "quibusdam"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-vehicle-logout--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Vehicle return logged successfully&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;No active entry found for this vehicle today&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;Vehicle not found&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-vehicle-logout--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-vehicle-logout--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-vehicle-logout--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-vehicle-logout--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-vehicle-logout--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-vehicle-logout--id-" data-method="PUT"
+      data-path="api/vehicle-logout/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-vehicle-logout--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-vehicle-logout--id-"
+                    onclick="tryItOut('PUTapi-vehicle-logout--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-vehicle-logout--id-"
+                    onclick="cancelTryOut('PUTapi-vehicle-logout--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-vehicle-logout--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/vehicle-logout/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-vehicle-logout--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-vehicle-logout--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTapi-vehicle-logout--id-"
+               value="qui"
+               data-component="url">
+    <br>
+<p>The ID of the vehicle Example: <code>qui</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="status"                data-endpoint="PUTapi-vehicle-logout--id-"
+               value="quibusdam"
+               data-component="body">
+    <br>
+<p>The status of the vehicle (must be 'returned') Example: <code>quibusdam</code></p>
+        </div>
+        </form>
 
             
 

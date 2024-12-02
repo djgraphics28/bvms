@@ -586,6 +586,23 @@ paths:
         required: true
         schema:
           type: integer
+  /api/incident-categories:
+    get:
+      summary: 'Get all incident categories.'
+      operationId: getAllIncidentCategories
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"Vehicular Accident\",\n      \"description\": \"vehicle accident\",\n    }\n  ]\n}"
+      tags:
+        - 'Incident Management'
+      security: []
   /api/profile:
     get:
       summary: 'Get User Profile'
@@ -626,17 +643,17 @@ paths:
                 name:
                   type: string
                   description: 'Name of the user'
-                  example: et
+                  example: eligendi
                   nullable: false
                 email:
                   type: string
                   description: 'Email of the user'
-                  example: hnitzsche@example.net
+                  example: loraine50@example.org
                   nullable: false
                 phone:
                   type: string
                   description: 'Phone number of the user'
-                  example: distinctio
+                  example: molestias
                   nullable: false
       security: []
   /api/drivers:
@@ -713,6 +730,64 @@ paths:
                     example: 1
       tags:
         - 'User Management'
+  /api/create-driver-account:
+    post:
+      summary: 'Create Driver Account'
+      operationId: createDriverAccount
+      description: 'Creates a new driver account with user and driver details.'
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Driver account created successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'Driver account created successfully'
+      tags:
+        - 'User Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'The first name of the driver.'
+                  example: John
+                  nullable: false
+                last_name:
+                  type: string
+                  description: 'The last name of the driver.'
+                  example: Doe
+                  nullable: false
+                email:
+                  type: string
+                  description: 'The email address of the driver. Must be unique.'
+                  example: john.doe@example.com
+                  nullable: false
+                driver_license_number:
+                  type: string
+                  description: "The driver's license number."
+                  example: ABC123XYZ
+                  nullable: false
+                middle_name:
+                  type: string
+                  description: 'optional The middle name of the driver.'
+                  example: Smith
+                  nullable: false
+              required:
+                - first_name
+                - last_name
+                - email
+                - driver_license_number
   /api/vehicles:
     get:
       summary: 'List Vehicles'
@@ -849,7 +924,7 @@ paths:
                 status:
                   type: string
                   description: 'The new status of the vehicle'
-                  example: omnis
+                  example: saepe
                   nullable: false
               required:
                 - status
@@ -902,6 +977,160 @@ paths:
         required: true
         schema:
           type: integer
+  '/api/vehicle-login/{id}':
+    post:
+      summary: 'Log Vehicle Out'
+      operationId: logVehicleOut
+      description: 'Create a new vehicle log entry when vehicle goes out'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Vehicle logged out successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'Vehicle logged out successfully'
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'Vehicle already go out today'
+                properties:
+                  error:
+                    type: string
+                    example: 'Vehicle already go out today'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'Vehicle not found'
+                properties:
+                  error:
+                    type: string
+                    example: 'Vehicle not found'
+      tags:
+        - 'Vehicle Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  description: "The status of the vehicle (must be 'out')"
+                  example: quos
+                  nullable: false
+                purpose:
+                  type: string
+                  description: 'The purpose of the trip'
+                  example: molestiae
+                  nullable: false
+                driver:
+                  type: string
+                  description: 'The ID of the driver'
+                  example: et
+                  nullable: false
+                destination:
+                  type: string
+                  description: 'The destination of the trip'
+                  example: velit
+                  nullable: false
+              required:
+                - status
+                - purpose
+                - driver
+                - destination
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the vehicle'
+        example: voluptas
+        required: true
+        schema:
+          type: string
+  '/api/vehicle-logout/{id}':
+    put:
+      summary: 'Log Vehicle Return'
+      operationId: logVehicleReturn
+      description: 'Update vehicle log entry when vehicle returns'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Vehicle return logged successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'Vehicle return logged successfully'
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'No active entry found for this vehicle today'
+                properties:
+                  error:
+                    type: string
+                    example: 'No active entry found for this vehicle today'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'Vehicle not found'
+                properties:
+                  error:
+                    type: string
+                    example: 'Vehicle not found'
+      tags:
+        - 'Vehicle Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  description: "The status of the vehicle (must be 'returned')"
+                  example: quibusdam
+                  nullable: false
+              required:
+                - status
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the vehicle'
+        example: qui
+        required: true
+        schema:
+          type: string
 tags:
   -
     name: Authentication

@@ -93,3 +93,99 @@ endpoints:
     method: null
     route: null
     custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/create-driver-account
+    metadata:
+      groupName: 'User Management'
+      groupDescription: |-
+
+        APIs for managing users
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create Driver Account'
+      description: 'Creates a new driver account with user and driver details.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      first_name:
+        name: first_name
+        description: 'The first name of the driver.'
+        required: true
+        example: John
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      last_name:
+        name: last_name
+        description: 'The last name of the driver.'
+        required: true
+        example: Doe
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'The email address of the driver. Must be unique.'
+        required: true
+        example: john.doe@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      driver_license_number:
+        name: driver_license_number
+        description: "The driver's license number."
+        required: true
+        example: ABC123XYZ
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      middle_name:
+        name: middle_name
+        description: 'optional The middle name of the driver.'
+        required: false
+        example: Smith
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      first_name: John
+      last_name: Doe
+      email: john.doe@example.com
+      driver_license_number: ABC123XYZ
+      middle_name: Smith
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "message": "Driver account created successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
 use App\Models\Incident;
 use Illuminate\Http\Request;
+use App\Models\IncidentCategory;
+use App\Http\Controllers\Controller;
 
 /**
  * @group Incident Management
@@ -205,5 +206,24 @@ class IncidentController extends Controller
         $incident->delete();
 
         return response()->json(['message' => 'Incident deleted successfully']);
+    }
+
+    /**
+     * Get all incident categories.
+     *
+     * @response {
+     *   "data": [
+     *     {
+     *       "id": 1,
+     *       "name": "Vehicular Accident",
+     *       "description": "vehicle accident",
+     *     }
+     *   ]
+     * }
+     */
+    public function getIncidentCategories()
+    {
+        $categories = IncidentCategory::all();
+        return response()->json($categories);
     }
 }

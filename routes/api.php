@@ -37,15 +37,20 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
      * @group Incident Management
      */
     Route::resource('incidents', IncidentController::class);
+    Route::get('incident-categories', [IncidentController::class,'getIncidentCategories']);
 
     /**
      * @group Vehicle Management
      */
     Route::resource('vehicles', VehicleController::class);
+    Route::post('vehicle-login/{id}', [VehicleController::class, 'vehicleLogIn']);
+    Route::put('vehicle-logout/{id}', [VehicleController::class, 'vehicleLogOut']);
 
     /**
      * @group User Management
      */
     Route::get('/drivers', [UsersController::class, 'drivers']);
     Route::get('/admins', [UsersController::class, 'admins']);
+
+    Route::post('/create-driver-account', [UsersController::class, 'createDriverAccount']);
 });

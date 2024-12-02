@@ -71,7 +71,7 @@ endpoints:
         name: name
         description: 'Name of the user'
         required: false
-        example: et
+        example: eligendi
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -81,7 +81,7 @@ endpoints:
         name: email
         description: 'Email of the user'
         required: false
-        example: hnitzsche@example.net
+        example: loraine50@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -91,16 +91,16 @@ endpoints:
         name: phone
         description: 'Phone number of the user'
         required: false
-        example: distinctio
+        example: molestias
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: et
-      email: hnitzsche@example.net
-      phone: distinctio
+      name: eligendi
+      email: loraine50@example.org
+      phone: molestias
     fileParameters: []
     responses: []
     responseFields: []
