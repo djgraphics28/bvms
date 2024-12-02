@@ -970,7 +970,7 @@ paths:
                 status:
                   type: string
                   description: 'The new status of the vehicle'
-                  example: illo
+                  example: unde
                   nullable: false
               required:
                 - status
@@ -988,7 +988,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the vehicle.'
-        example: 16
+        example: 14
         required: true
         schema:
           type: integer
@@ -1019,7 +1019,7 @@ paths:
         in: path
         name: vehicle
         description: 'The vehicle.'
-        example: 12
+        example: 18
         required: true
         schema:
           type: integer
@@ -1078,22 +1078,22 @@ paths:
                 status:
                   type: string
                   description: "The status of the vehicle (must be 'out')"
-                  example: et
+                  example: ducimus
                   nullable: false
                 purpose:
                   type: string
                   description: 'The purpose of the trip'
-                  example: est
+                  example: sit
                   nullable: false
                 driver:
                   type: string
                   description: 'The ID of the driver'
-                  example: itaque
+                  example: vero
                   nullable: false
                 destination:
                   type: string
                   description: 'The destination of the trip'
-                  example: dolorem
+                  example: vel
                   nullable: false
               required:
                 - status
@@ -1105,7 +1105,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the vehicle'
-        example: in
+        example: id
         required: true
         schema:
           type: string
@@ -1164,7 +1164,7 @@ paths:
                 status:
                   type: string
                   description: "The status of the vehicle (must be 'returned')"
-                  example: similique
+                  example: suscipit
                   nullable: false
               required:
                 - status
@@ -1173,7 +1173,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the vehicle'
-        example: mollitia
+        example: aut
         required: true
         schema:
           type: string

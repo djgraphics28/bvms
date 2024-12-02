@@ -21,6 +21,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
@@ -94,6 +95,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
@@ -177,7 +179,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer P3ha815vcgDkVEb6edf6aZ4'
+      - 'Bearer h43ge65kaZE1fDV8bcdvP6a'
     controller: null
     method: null
     route: null

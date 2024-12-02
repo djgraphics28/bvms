@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "BVMS",
-        "_postman_id": "a9d925f8-d4b2-415f-aaad-dd583f7ab0f4",
+        "_postman_id": "4f97779e-3698-43e7-91dc-b84a470c8591",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -787,7 +787,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "16",
+                                    "value": "14",
                                     "description": "The ID of the vehicle."
                                 }
                             ]
@@ -843,7 +843,7 @@
                                 {
                                     "id": "vehicle",
                                     "key": "vehicle",
-                                    "value": "12",
+                                    "value": "18",
                                     "description": "The vehicle."
                                 }
                             ]
@@ -899,7 +899,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "unde",
+                                    "value": "est",
                                     "description": "The ID of the vehicle"
                                 }
                             ]
@@ -917,7 +917,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"status\":\"illo\"}"
+                            "raw": "{\"status\":\"unde\"}"
                         },
                         "description": "Update the status of a specific vehicle"
                     },
@@ -948,7 +948,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "3",
+                                    "value": "1",
                                     "description": "The ID of the vehicle."
                                 }
                             ]
@@ -984,7 +984,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "in",
+                                    "value": "id",
                                     "description": "The ID of the vehicle"
                                 }
                             ]
@@ -1002,7 +1002,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"status\":\"et\",\"purpose\":\"est\",\"driver\":\"itaque\",\"destination\":\"dolorem\"}"
+                            "raw": "{\"status\":\"ducimus\",\"purpose\":\"sit\",\"driver\":\"vero\",\"destination\":\"vel\"}"
                         },
                         "description": "Create a new vehicle log entry when vehicle goes out"
                     },
@@ -1039,7 +1039,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "mollitia",
+                                    "value": "aut",
                                     "description": "The ID of the vehicle"
                                 }
                             ]
@@ -1057,7 +1057,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"status\":\"similique\"}"
+                            "raw": "{\"status\":\"suscipit\"}"
                         },
                         "description": "Update vehicle log entry when vehicle returns"
                     },
