@@ -19,6 +19,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -43,7 +44,10 @@ endpoints:
         description: success
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1e8dVvkZgh54Eab3Dac6fP6'
     controller: null
     method: null
     route: null
@@ -64,6 +68,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -88,7 +93,10 @@ endpoints:
         description: success
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Pbfk4165a6cgZdehE3vaDV8'
     controller: null
     method: null
     route: null
@@ -109,6 +117,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -184,7 +193,10 @@ endpoints:
         description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer vP1c854gfV3aZ6kaeD6hdbE'
     controller: null
     method: null
     route: null

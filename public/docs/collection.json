@@ -9,8 +9,8 @@
         }
     ],
     "info": {
-        "name": "BVMS Admin",
-        "_postman_id": "0ddef8d8-e918-4ed3-9faf-db43326b2b90",
+        "name": "BVMS",
+        "_postman_id": "a9d925f8-d4b2-415f-aaad-dd583f7ab0f4",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -188,7 +188,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "[{\"id\":1,\"name\":\"Binalonan\",\"longitude\":\"12313111\",\"latitude\":\"1231313131\",\"created_at\":\"2024-11-25T15:00:22.000000Z\",\"updated_at\":\"2024-11-25T15:00:22.000000Z\"}]",
+                            "body": "[]",
                             "name": ""
                         }
                     ]
@@ -787,7 +787,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "16",
                                     "description": "The ID of the vehicle."
                                 }
                             ]
@@ -843,7 +843,7 @@
                                 {
                                     "id": "vehicle",
                                     "key": "vehicle",
-                                    "value": "1",
+                                    "value": "12",
                                     "description": "The vehicle."
                                 }
                             ]
@@ -899,7 +899,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "aperiam",
+                                    "value": "unde",
                                     "description": "The ID of the vehicle"
                                 }
                             ]
@@ -917,7 +917,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"status\":\"harum\"}"
+                            "raw": "{\"status\":\"illo\"}"
                         },
                         "description": "Update the status of a specific vehicle"
                     },
@@ -948,7 +948,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "3",
                                     "description": "The ID of the vehicle."
                                 }
                             ]
@@ -984,7 +984,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "mollitia",
+                                    "value": "in",
                                     "description": "The ID of the vehicle"
                                 }
                             ]
@@ -1002,7 +1002,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"status\":\"nemo\",\"purpose\":\"et\",\"driver\":\"eaque\",\"destination\":\"repudiandae\"}"
+                            "raw": "{\"status\":\"et\",\"purpose\":\"est\",\"driver\":\"itaque\",\"destination\":\"dolorem\"}"
                         },
                         "description": "Create a new vehicle log entry when vehicle goes out"
                     },
@@ -1039,7 +1039,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "officiis",
+                                    "value": "mollitia",
                                     "description": "The ID of the vehicle"
                                 }
                             ]
@@ -1057,7 +1057,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"status\":\"et\"}"
+                            "raw": "{\"status\":\"similique\"}"
                         },
                         "description": "Update vehicle log entry when vehicle returns"
                     },
@@ -1086,6 +1086,12 @@
         }
     ],
     "auth": {
-        "type": "noauth"
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "token",
+                "type": "string"
+            }
+        ]
     }
 }

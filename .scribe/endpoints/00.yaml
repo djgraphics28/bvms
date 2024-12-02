@@ -31,7 +31,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '[{"id":1,"name":"Binalonan","longitude":"12313111","latitude":"1231313131","created_at":"2024-11-25T15:00:22.000000Z","updated_at":"2024-11-25T15:00:22.000000Z"}]'
+        content: '[]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

@@ -19,6 +19,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -45,7 +46,10 @@ endpoints:
         description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1VvEDb3kgf6Zd46eP5aahc8'
     controller: null
     method: null
     route: null
@@ -146,14 +150,14 @@ endpoints:
         name: id
         description: 'The ID of the vehicle.'
         required: true
-        example: 1
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -198,14 +202,14 @@ endpoints:
         name: vehicle
         description: 'The vehicle.'
         required: true
-        example: 1
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      vehicle: 1
+      vehicle: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -244,6 +248,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -251,14 +256,14 @@ endpoints:
         name: id
         description: 'The ID of the vehicle'
         required: true
-        example: aperiam
+        example: unde
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: aperiam
+      id: unde
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -266,14 +271,14 @@ endpoints:
         name: status
         description: 'The new status of the vehicle'
         required: true
-        example: harum
+        example: illo
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      status: harum
+      status: illo
     fileParameters: []
     responses:
       -
@@ -295,7 +300,10 @@ endpoints:
         description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer facE36g4dhVbe6Dav8kPZ15'
     controller: null
     method: null
     route: null
@@ -323,14 +331,14 @@ endpoints:
         name: id
         description: 'The ID of the vehicle.'
         required: true
-        example: 1
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 3
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -359,6 +367,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -366,14 +375,14 @@ endpoints:
         name: id
         description: 'The ID of the vehicle'
         required: true
-        example: mollitia
+        example: in
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: mollitia
+      id: in
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -381,7 +390,7 @@ endpoints:
         name: status
         description: "The status of the vehicle (must be 'out')"
         required: true
-        example: nemo
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -391,7 +400,7 @@ endpoints:
         name: purpose
         description: 'The purpose of the trip'
         required: true
-        example: et
+        example: est
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -401,7 +410,7 @@ endpoints:
         name: driver
         description: 'The ID of the driver'
         required: true
-        example: eaque
+        example: itaque
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -411,17 +420,17 @@ endpoints:
         name: destination
         description: 'The destination of the trip'
         required: true
-        example: repudiandae
+        example: dolorem
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      status: nemo
-      purpose: et
-      driver: eaque
-      destination: repudiandae
+      status: et
+      purpose: est
+      driver: itaque
+      destination: dolorem
     fileParameters: []
     responses:
       -
@@ -452,7 +461,10 @@ endpoints:
         description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer a3hD6ck5Ead8PVZv614gfbe'
     controller: null
     method: null
     route: null
@@ -473,6 +485,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -480,14 +493,14 @@ endpoints:
         name: id
         description: 'The ID of the vehicle'
         required: true
-        example: officiis
+        example: mollitia
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: officiis
+      id: mollitia
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -495,14 +508,14 @@ endpoints:
         name: status
         description: "The status of the vehicle (must be 'returned')"
         required: true
-        example: et
+        example: similique
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      status: et
+      status: similique
     fileParameters: []
     responses:
       -
@@ -533,7 +546,10 @@ endpoints:
         description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer d4vb56D8k1aPhaZ6f3VcgEe'
     controller: null
     method: null
     route: null
