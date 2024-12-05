@@ -21,6 +21,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
@@ -94,6 +95,7 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
@@ -153,6 +155,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -173,7 +176,10 @@ endpoints:
         description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer V85vga6kEcba3P461fdehZD'
     controller: null
     method: null
     route: null

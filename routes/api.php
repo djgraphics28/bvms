@@ -45,6 +45,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('vehicles', VehicleController::class);
     Route::post('vehicle-login/{id}', [VehicleController::class, 'vehicleLogIn']);
     Route::put('vehicle-logout/{id}', [VehicleController::class, 'vehicleLogOut']);
+    Route::get('vehicle-logs', [VehicleController::class, 'getVehicleLogs']);
+
 
     /**
      * @group User Management

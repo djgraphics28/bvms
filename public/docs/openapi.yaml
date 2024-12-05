@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: 'BVMS Admin'
+  title: BVMS
   description: ''
   version: 1.0.0
 servers:
@@ -149,14 +149,7 @@ paths:
                 type: array
                 items:
                   type: object
-                example:
-                  -
-                    id: 1
-                    name: Binalonan
-                    longitude: '12313111'
-                    latitude: '1231313131'
-                    created_at: '2024-11-25T15:00:22.000000Z'
-                    updated_at: '2024-11-25T15:00:22.000000Z'
+                example: []
       tags:
         - 'Barangay Management'
       security: []
@@ -977,7 +970,7 @@ paths:
                 status:
                   type: string
                   description: 'The new status of the vehicle'
-                  example: harum
+                  example: qui
                   nullable: false
               required:
                 - status
@@ -995,7 +988,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the vehicle.'
-        example: 1
+        example: 20
         required: true
         schema:
           type: integer
@@ -1085,22 +1078,22 @@ paths:
                 status:
                   type: string
                   description: "The status of the vehicle (must be 'out')"
-                  example: nemo
+                  example: qui
                   nullable: false
                 purpose:
                   type: string
                   description: 'The purpose of the trip'
-                  example: et
+                  example: consequuntur
                   nullable: false
                 driver:
                   type: string
                   description: 'The ID of the driver'
-                  example: eaque
+                  example: nihil
                   nullable: false
                 destination:
                   type: string
                   description: 'The destination of the trip'
-                  example: repudiandae
+                  example: facere
                   nullable: false
               required:
                 - status
@@ -1112,7 +1105,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the vehicle'
-        example: mollitia
+        example: totam
         required: true
         schema:
           type: string
@@ -1171,7 +1164,7 @@ paths:
                 status:
                   type: string
                   description: "The status of the vehicle (must be 'returned')"
-                  example: et
+                  example: numquam
                   nullable: false
               required:
                 - status
@@ -1180,10 +1173,81 @@ paths:
         in: path
         name: id
         description: 'The ID of the vehicle'
-        example: officiis
+        example: in
         required: true
         schema:
           type: string
+  /api/vehicle-logs:
+    get:
+      summary: 'Get Vehicle Logs'
+      operationId: getVehicleLogs
+      description: "Get a list of vehicle logs for the authenticated user's barangay"
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      vehicle_id: 1
+                      barangay_id: 1
+                      status: out
+                      purpose: 'Official Business'
+                      destination: 'City Hall'
+                      driver_id: 1
+                      entry_time: '2024-01-01 08:00:00'
+                      exit_time: '2024-01-01 17:00:00'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        vehicle_id: 1
+                        barangay_id: 1
+                        status: out
+                        purpose: 'Official Business'
+                        destination: 'City Hall'
+                        driver_id: 1
+                        entry_time: '2024-01-01 08:00:00'
+                        exit_time: '2024-01-01 17:00:00'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        vehicle_id:
+                          type: integer
+                          example: 1
+                        barangay_id:
+                          type: integer
+                          example: 1
+                        status:
+                          type: string
+                          example: out
+                        purpose:
+                          type: string
+                          example: 'Official Business'
+                        destination:
+                          type: string
+                          example: 'City Hall'
+                        driver_id:
+                          type: integer
+                          example: 1
+                        entry_time:
+                          type: string
+                          example: '2024-01-01 08:00:00'
+                        exit_time:
+                          type: string
+                          example: '2024-01-01 17:00:00'
+      tags:
+        - 'Vehicle Management'
 tags:
   -
     name: Authentication
@@ -1203,3 +1267,12 @@ tags:
   -
     name: 'Vehicle Management'
     description: "\nAPIs for managing vehicles"
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+security:
+  -
+    default: []

@@ -58,6 +58,7 @@ class IncidentController extends Controller
         $barangayId = $request->user()->barangay_id;
         // Paginate incidents with 10 items per page
         $incidents = Incident::where('barangay_id', $barangayId)->get();
+
         return response()->json($incidents);
     }
 
