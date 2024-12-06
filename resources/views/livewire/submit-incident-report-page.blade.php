@@ -23,7 +23,7 @@
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Select Barangay</label>
-                        <select wire:model="selectedBrangay" name="barangay" required
+                        <select wire:model="selectedBarangay" name="barangay" required
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                             <option value="" selected disabled>Select a barangay</option>
                             @foreach ($barangays as $item)
