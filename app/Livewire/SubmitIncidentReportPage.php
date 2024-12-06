@@ -16,7 +16,6 @@ class SubmitIncidentReportPage extends Component
 
     public $selectedBarangay = null;
     public $selectedCategory = null;
-    public $incidentType = null;
     public $title = null;
     public $dateTime = null;
     public $location = null;
@@ -53,7 +52,7 @@ class SubmitIncidentReportPage extends Component
             $incidentReport = new Incident();
             $incidentReport->barangay_id = $this->selectedBarangay;
             $incidentReport->type = "incident";
-            $incidentReport->incident_category_id = $this->incidentType;
+            $incidentReport->incident_category_id = $this->selectedCategory;
             $incidentReport->title = $this->title;
             $incidentReport->date_time = $this->dateTime;
             $incidentReport->location = $this->location;
