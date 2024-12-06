@@ -25,6 +25,8 @@ class SubmitIncidentReportPage extends Component
     public $contactNumber;
     public $fullName;
     public $image;
+    public $lat;
+    public $long;
 
 
     public function mount()
@@ -42,7 +44,6 @@ class SubmitIncidentReportPage extends Component
                 'selectedCategory' => 'required',
                 'title' => 'required',
                 'dateTime' => 'required',
-                'location' => 'required',
                 'description' => 'required',
                 'severityLevel' => 'required',
                 'email' => 'required|email',
@@ -55,7 +56,7 @@ class SubmitIncidentReportPage extends Component
             $incidentReport->incident_category_id = $this->selectedCategory;
             $incidentReport->title = $this->title;
             $incidentReport->date_time = $this->dateTime;
-            $incidentReport->location = $this->location;
+            $incidentReport->location = $this->lat.",".$this->long;
             $incidentReport->description = $this->description;
             $incidentReport->status = $this->incidentStatus;
             $incidentReport->priority = $this->severityLevel;

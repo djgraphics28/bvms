@@ -83,8 +83,8 @@
                                 </svg>
                             </button>
                         </div>
-                        <input type="hidden" id="latitude" name="latitude" required>
-                        <input type="hidden" id="longitude" name="longitude" required>
+                        <input wire:model="lat" type="hidden" id="latitude" name="latitude" required>
+                        <input wire:model="long" type="hidden" id="longitude" name="longitude" required>
                         <small class="text-gray-500">Click on the map to set location or drag the marker</small>
                     </div>
 
