@@ -15,6 +15,7 @@ class SubmitIncidentReportPage extends Component
     public $categories = [];
 
     public $selectedBarangay = null;
+    public $selectedCategory = null;
     public $incidentType = null;
     public $incidentTitle = null;
     public $incidentDate = null;
