@@ -40,7 +40,6 @@ class SubmitIncidentReportPage extends Component
         $this->validate([
             'selectedBarangay' => 'required',
             'selectedCategory' => 'required',
-            'incidentType' => 'required',
             'incidentTitle' => 'required',
             'dateTime' => 'required',
             'location' => 'required',
