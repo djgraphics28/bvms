@@ -71,7 +71,7 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Location</label>
                         <div class="flex space-x-2">
-                            <input wire:model="location" type="text" id="location" name="location" required
+                            <input wire:model.live="location" type="text" id="location" name="location" readonly required
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                             <button type="button" onclick="getLocation()"
                                 class="mt-1 inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
