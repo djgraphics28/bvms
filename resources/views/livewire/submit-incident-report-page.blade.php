@@ -89,7 +89,7 @@
                     </div>
 
                     <!-- Map Container -->
-                    <div id="map" class="mt-4 w-full h-64 rounded-lg border border-gray-300"></div>
+                    <div wire:ignore id="map" class="mt-4 w-full h-64 rounded-lg border border-gray-300"></div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Incident Description</label>

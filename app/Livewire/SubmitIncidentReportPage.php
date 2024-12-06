@@ -18,7 +18,6 @@ class SubmitIncidentReportPage extends Component
     public $selectedCategory = null;
     public $incidentType = null;
     public $incidentTitle = null;
-    public $incidentDate = null;
     public $dateTime = null;
     public $location = null;
     public $description = null;
@@ -38,44 +37,49 @@ class SubmitIncidentReportPage extends Component
 
     public function store()
     {
-        $this->validate([
-            'selectedBarangay' => 'required',
-            'selectedCategory' => 'required',
-            'incidentTitle' => 'required',
-            'dateTime' => 'required',
-            'location' => 'required',
-            'description' => 'required',
-            'severityLevel' => 'required',
-            'email' => 'required|email',
-            'fullName' => 'required'
-        ]);
+        try {
+            $this->validate([
+                'selectedBarangay' => 'required',
+                'selectedCategory' => 'required',
+                'title' => 'required',
+                'dateTime' => 'required',
+                'location' => 'required',
+                'description' => 'required',
+                'severityLevel' => 'required',
+                'email' => 'required|email',
+                'fullName' => 'required'
+            ]);
 
-        $incidentReport = new Incident();
-        $incidentReport->barangay_id = $this->selectedBarangay;
-        $incidentReport->type = "incident";
-        $incidentReport->incident_category_id = $this->incidentType;
-        $incidentReport->title = $this->incidentTitle;
-        $incidentReport->date_time = $this->dateTime;
-        $incidentReport->location = $this->location;
-        $incidentReport->description = $this->description;
-        $incidentReport->status = $this->incidentStatus;
-        $incidentReport->priority = $this->severityLevel;
-        $incidentReport->email = $this->email;
-        $incidentReport->contact_number = $this->contactNumber;
-        $incidentReport->reporter = $this->fullName;
+            $incidentReport = new Incident();
+            $incidentReport->barangay_id = $this->selectedBarangay;
+            $incidentReport->type = "incident";
+            $incidentReport->incident_category_id = $this->incidentType;
+            $incidentReport->title = $this->incidentTitle;
+            $incidentReport->date_time = $this->dateTime;
+            $incidentReport->location = $this->location;
+            $incidentReport->description = $this->description;
+            $incidentReport->status = $this->incidentStatus;
+            $incidentReport->priority = $this->severityLevel;
+            $incidentReport->email = $this->email;
+            $incidentReport->contact_number = $this->contactNumber;
+            $incidentReport->reporter = $this->fullName;
 
-        if ($this->image) {
-            $incidentReport->addMedia($this->image)->toMediaCollection('incident_image');
-        }
+            if ($this->image) {
+                $incidentReport->addMedia($this->image)->toMediaCollection('incident_image');
+            }
 
-        if ($incidentReport->save()) {
-            // Send auto-response email
-            Mail::to($incidentReport->email)->send(new \App\Mail\IncidentReportAcknowledgement($incidentReport));
-            $this->alert('success', 'Incident report submitted successfully.');
+            if ($incidentReport->save()) {
+                // Send auto-response email
+                Mail::to($incidentReport->email)->send(new \App\Mail\IncidentReportAcknowledgement($incidentReport));
+                $this->alert('success', 'Incident report submitted successfully.');
 
-            sleep(2);
+                sleep(2);
 
-            return redirect()->route('incident.submission.succeed');
+                return redirect()->route('incident.submission.succeed');
+            }
+        } catch (\Exception $e) {
+            $this->alert('error', 'An error occurred while submitting the incident report.');
+            return null;
         }
     }
     public function render()
