@@ -78,7 +78,7 @@ class SubmitIncidentReportPage extends Component
                 return redirect()->route('incident.submission.succeed');
             }
         } catch (\Exception $e) {
-            $this->alert('error', 'An error occurred while submitting the incident report.');
+            $this->alert('error', $e->getMessage());
             return null;
         }
     }
