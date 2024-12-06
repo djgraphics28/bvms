@@ -23,7 +23,7 @@
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Select Barangay</label>
-                        <select
+                        <select name="barangay" required
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                             <option value="">Select a barangay</option>
                         </select>
@@ -31,61 +31,66 @@
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Incident Title</label>
-                        <input type="text"
+                        <input type="text" name="title" required
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Date & Time</label>
-                        <input type="datetime-local"
+                        <input type="datetime-local" name="datetime" required
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Location</label>
                         <div class="flex space-x-2">
-                            <input type="text" id="location" readonly
+                            <input type="text" id="location" name="location" readonly required
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                             <button type="button" onclick="getLocation()"
                                 class="mt-1 inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-                                    fill="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd"
                                         d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
                                         clip-rule="evenodd" />
                                 </svg>
                             </button>
                         </div>
-                        <input type="hidden" id="latitude" name="latitude">
-                        <input type="hidden" id="longitude" name="longitude">
+                        <input type="hidden" id="latitude" name="latitude" required>
+                        <input type="hidden" id="longitude" name="longitude" required>
+                        <small class="text-gray-500">Click on the map to set location or drag the marker</small>
                     </div>
+
+                    <!-- Map Container -->
+                    <div id="map" class="mt-4 w-full h-64 rounded-lg border border-gray-300"></div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Incident Description</label>
-                        <textarea rows="4"
+                        <textarea rows="4" name="description" required
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Severity Level</label>
-                        <select
+                        <select name="severity" required
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                            <option>Low</option>
-                            <option>Medium</option>
-                            <option>High</option>
-                            <option>Critical</option>
+                            <option value="">Select severity</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                            <option value="critical">Critical</option>
                         </select>
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Contact Number</label>
-                        <input required type="text"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        <input type="tel" name="contact" required pattern="[0-9]{11}"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                            placeholder="09XXXXXXXXX">
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email"
+                        <input type="email" name="email" required
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                     </div>
 
@@ -102,17 +107,134 @@
     </x-container>
 </div>
 
-
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGSdz2RsYpR2isrO9CpAUSQUgAf6pZKvg"></script>
 <script>
+    let map;
+    let marker;
+
+    function initMap() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    const currentLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    map = new google.maps.Map(document.getElementById("map"), {
+                        center: currentLocation,
+                        zoom: 15,
+                    });
+
+                    marker = new google.maps.Marker({
+                        position: currentLocation,
+                        map: map,
+                        title: "Incident Location",
+                        draggable: true,
+                        animation: google.maps.Animation.DROP
+                    });
+
+                    document.getElementById("latitude").value = currentLocation.lat;
+                    document.getElementById("longitude").value = currentLocation.lng;
+                    document.getElementById("location").value = `${currentLocation.lat}, ${currentLocation.lng}`;
+
+                    // Add click listener to map
+                    map.addListener('click', function(e) {
+                        placeMarker(e.latLng);
+                    });
+
+                    marker.addListener('dragend', function() {
+                        const pos = marker.getPosition();
+                        document.getElementById("latitude").value = pos.lat();
+                        document.getElementById("longitude").value = pos.lng();
+                        document.getElementById("location").value = `${pos.lat()}, ${pos.lng()}`;
+                        marker.setAnimation(google.maps.Animation.BOUNCE);
+                        setTimeout(() => marker.setAnimation(null), 500);
+                    });
+                },
+                function() {
+                    handleLocationError(true);
+                }
+            );
+        } else {
+            handleLocationError(false);
+        }
+    }
+
+    function handleLocationError(error) {
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                alert("User denied the request for Geolocation.");
+                break;
+            case error.POSITION_UNAVAILABLE:
+                alert("Location information is unavailable.");
+                break;
+            case error.TIMEOUT:
+                alert("The request to get user location timed out.");
+                break;
+            case error.UNKNOWN_ERROR:
+                alert("An unknown error occurred.");
+                break;
+        }
+
+        // Fall back to default location if there's an error
+        const defaultLocation = { lat: 14.5995, lng: 120.9842 };
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: defaultLocation,
+            zoom: 15,
+        });
+    }
+
+    function placeMarker(location) {
+        if (marker) {
+            marker.setPosition(location);
+        } else {
+            marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP
+            });
+        }
+        document.getElementById("latitude").value = location.lat();
+        document.getElementById("longitude").value = location.lng();
+        document.getElementById("location").value = `${location.lat()}, ${location.lng()}`;
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(() => marker.setAnimation(null), 500);
+    }
+
     function getLocation() {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
+            navigator.geolocation.getCurrentPosition(showPosition, handleLocationError);
+        } else {
+            alert("Geolocation is not supported by this browser.");
         }
     }
 
     function showPosition(position) {
-        document.getElementById("latitude").value = position.coords.latitude;
-        document.getElementById("longitude").value = position.coords.longitude;
-        document.getElementById("location").value = position.coords.latitude + ", " + position.coords.longitude;
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        document.getElementById("latitude").value = latitude;
+        document.getElementById("longitude").value = longitude;
+        document.getElementById("location").value = `${latitude}, ${longitude}`;
+
+        const location = { lat: latitude, lng: longitude };
+
+        map.setCenter(location);
+
+        if (marker) {
+            marker.setPosition(location);
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+            setTimeout(() => marker.setAnimation(null), 500);
+        } else {
+            marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                title: "Incident Location"
+            });
+        }
     }
 </script>
