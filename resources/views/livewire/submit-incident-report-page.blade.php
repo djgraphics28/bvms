@@ -195,6 +195,8 @@
                     document.getElementById("latitude").value = currentLocation.lat;
                     document.getElementById("longitude").value = currentLocation.lng;
                     document.getElementById("location").value = `${currentLocation.lat}, ${currentLocation.lng}`;
+
+                    @this.set('location', `${currentLocation.lat}, ${currentLocation.lng}`);
                 },
                 (error) => {
                     alert("Error fetching location: " + error.message);
@@ -203,6 +205,8 @@
         } else {
             alert("Geolocation is not supported by your browser.");
         }
+
+
     }
 
     function placeMarker(location) {
