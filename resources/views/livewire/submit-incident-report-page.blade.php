@@ -209,13 +209,8 @@
     marker.setPosition(location);
     document.getElementById("latitude").value = location.lat();
     document.getElementById("longitude").value = location.lng();
-    document.getElementById("location").value = `${location.lat()}, ${location.lng()}`;
+    document.getElementById("location").value = location.lat() + ", " + location.lng();
 
-    // Update Livewire properties
-    Livewire.find(document.getElementById('latitude').closest('[wire\\:id]').getAttribute('wire:id'))
-        .set('lat', location.lat());
-    Livewire.find(document.getElementById('longitude').closest('[wire\\:id]').getAttribute('wire:id'))
-        .set('long', location.lng());
-    Livewire.find(document.getElementById('location').closest('[wire\\:id]').getAttribute('wire:id'))
-        .set('location', `${location.lat()}, ${location.lng()}`);
-}</script>
+    @this.set('location', location.lat() + ", " + location.lng());
+}
+</script>

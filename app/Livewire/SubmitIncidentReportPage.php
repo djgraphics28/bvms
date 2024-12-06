@@ -56,7 +56,7 @@ class SubmitIncidentReportPage extends Component
             $incidentReport->incident_category_id = $this->selectedCategory;
             $incidentReport->title = $this->title;
             $incidentReport->date_time = $this->dateTime;
-            $incidentReport->location = $this->lat.",".$this->long;
+            $incidentReport->location = $this->location;
             $incidentReport->description = $this->description;
             $incidentReport->status = $this->incidentStatus;
             $incidentReport->priority = $this->severityLevel;
