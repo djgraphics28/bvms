@@ -37,7 +37,6 @@ class SubmitIncidentReportPage extends Component
 
     public function store()
     {
-        dd($this);
         try {
             $this->validate([
                 'selectedBarangay' => 'required',
