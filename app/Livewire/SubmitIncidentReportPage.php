@@ -14,18 +14,17 @@ class SubmitIncidentReportPage extends Component
     public $barangays = [];
     public $categories = [];
 
-    public $selectedBarangay = null;
-    public $selectedCategory = null;
-    public $title = null;
-    public $dateTime = null;
-    public $location = null;
-    public $description = null;
-    public $incidentStatus = null;
-    public $severityLevel = null;
-    public $email = null;
-    public $contactNumber = null;
-    public $fullName = null;
-    public $image = null;
+    public $selectedBarangay;
+    public $selectedCategory;
+    public $title;
+    public $dateTime;
+    public $location;
+    public $description;
+    public $severityLevel;
+    public $email;
+    public $contactNumber;
+    public $fullName;
+    public $image;
 
 
     public function mount()
@@ -36,6 +35,7 @@ class SubmitIncidentReportPage extends Component
 
     public function store()
     {
+        dd($this);
         try {
             $this->validate([
                 'selectedBarangay' => 'required',
