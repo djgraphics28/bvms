@@ -34,4 +34,14 @@ class Vehicle extends Model implements HasMedia
     {
         return $this->hasMany(VehicleLog::class, 'vehicle_id', 'id');
     }
+
+    /**
+     * Get the device that owns the Vehicle
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function device(): BelongsTo
+    {
+        return $this->belongsTo(Device::class, 'device_id', 'id');
+    }
 }
