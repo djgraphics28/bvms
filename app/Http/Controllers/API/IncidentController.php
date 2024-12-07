@@ -6,6 +6,7 @@ use App\Models\Incident;
 use Illuminate\Http\Request;
 use App\Models\IncidentCategory;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\API\IncidentResource;
 
 /**
  * @group Incident Management
@@ -59,7 +60,7 @@ class IncidentController extends Controller
         // Paginate incidents with 10 items per page
         $incidents = Incident::where('barangay_id', $barangayId)->latest()->get();
 
-        return response()->json($incidents);
+        return response()->json(IncidentResource::collection($incidents));
     }
 
     /**
