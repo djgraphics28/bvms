@@ -95,9 +95,9 @@ class VehicleResource extends Resource
                 Tables\Actions\Action::make('showMap')
                     ->form([
                         \ArberMustafa\FilamentLocationPickrField\Forms\Components\LocationPickr::make('location')
-                            ->defaultZoom(13)
-                            ->draggable()
-                            ->clickable()
+                            ->defaultZoom(15)
+                            // ->draggable()
+                            // ->clickable()
                             ->defaultLocation(fn($record) => $record->device ? [$record->device->latitude, $record->device->longitude] : [0, 0])
                     ])
                     ->icon('heroicon-o-map')
