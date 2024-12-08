@@ -33,8 +33,8 @@ class Device extends Model implements HasMedia
     {
         return Attribute::make(
             get: fn($value, $attributes) => json_encode([
-                'latitude' => (float) $attributes['latitude'],
-                'longitude' => (float) $attributes['longitude'],
+                'lat' => (float) $attributes['latitude'],
+                'lng' => (float) $attributes['longitude'],
             ]),
             set: fn($value) => [
                 'latitude' => $value['lat'],
