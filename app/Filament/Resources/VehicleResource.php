@@ -40,7 +40,7 @@ class VehicleResource extends Resource
                 Forms\Components\TextInput::make('plate_number')
                     ->required()
                     ->maxLength(255),
-                    Forms\Components\Select::make('status')
+                Forms\Components\Select::make('status')
                     ->options([
                         'working' => 'Working',
                         'for-maintenance' => 'For Maintenance',
@@ -49,6 +49,10 @@ class VehicleResource extends Resource
                 Forms\Components\Select::make('barangay_id')
                     ->relationship('barangay', 'name')
                     ->required(),
+                Forms\Components\Select::make('device_id')
+                    ->label('Tag Device')
+                    ->relationship('device', 'code')
+                    ->searchable(),
             ]);
     }
 
@@ -70,6 +74,9 @@ class VehicleResource extends Resource
                 Tables\Columns\TextColumn::make('barangay.name')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\ImageColumn::make('device.image')
+                    ->label('Device Tracker'),
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -84,6 +91,16 @@ class VehicleResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\Action::make('showMap')
+                    ->form([
+                        \ArberMustafa\FilamentLocationPickrField\Forms\Components\LocationPickr::make('location')
+                            ->defaultZoom(13)
+                            ->draggable()
+                            ->clickable()
+                            ->defaultLocation(fn ($record) => [$record->device->latitude, $record->device->longitude])
+                    ])
+                    ->icon('heroicon-o-map')
+                    ->label('Show in Map'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
