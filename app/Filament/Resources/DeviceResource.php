@@ -41,7 +41,7 @@ class DeviceResource extends Resource
                         'fullscreenControl' => true,
                         'zoomControl'       => false,
                     ])
-                    ->defaultZoom(5)
+                    ->defaultZoom(20)
                     ->draggable()
                     ->clickable()
                     ->height('40vh')
