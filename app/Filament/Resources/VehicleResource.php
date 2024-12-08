@@ -102,6 +102,7 @@ class VehicleResource extends Resource
                     ])
                     ->icon('heroicon-o-map')
                     ->label('Show in Map')
+                    ->hidden(fn($record) => !$record->device || empty($record->device->latitude) || empty($record->device->longitude))
                     ->before(function ($record) {
                         if (!$record->device || empty($record->device->latitude) || empty($record->device->longitude)) {
                             Notification::make()
