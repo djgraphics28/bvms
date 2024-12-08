@@ -24,8 +24,8 @@ class VehicleResource extends JsonResource
             'status' => $this->status,
             'barangay' => $this->barangay->name,
             'plate_number' => $this->plate_number,
-            'latitude' => $this->device ? $this->device->latitude ?? "16.050200" : "16.050200",
-            'longitude' => $this->device ? $this->device->longitude ?? "120.587310" : "120.587310",
+            'latitude' => $this->device ? $this->device->latitude ?? "0.0" : "0.0",
+            'longitude' => $this->device ? $this->device->longitude ?? "0.0" : "0.0",
             'location' => $this->device ? $this->device->location ?? '' : '',
             'device_image' => $this->device && $this->device->image ? config('app.url').'/storage/'.$this->device->image : '',            // 'updated_at' => $this->updated_at->format('Y-m-d H:i:s'),
         ];
