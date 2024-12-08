@@ -22,6 +22,7 @@ class IncidentResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+
     public static function form(Form $form): Form
     {
         return $form
@@ -93,14 +94,6 @@ class IncidentResource extends Resource
                     ->required(),
             ]);
     }
-
-    public static function getWidgets(): array
-    {
-        return [
-            IncidentMap::class, // Add your widget here
-        ];
-    }
-
     public static function table(Table $table): Table
     {
         return $table

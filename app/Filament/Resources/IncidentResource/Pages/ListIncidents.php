@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\IncidentResource\Pages;
 
-use App\Filament\Resources\IncidentResource;
 use Filament\Actions;
+use App\Filament\Widgets\IncidentMap;
 use Filament\Resources\Pages\ListRecords;
+use App\Filament\Resources\IncidentResource;
 
 class ListIncidents extends ListRecords
 {
@@ -14,6 +15,14 @@ class ListIncidents extends ListRecords
     {
         return [
             Actions\CreateAction::make(),
+        ];
+    }
+
+
+    public static function getWidgets(): array
+    {
+        return [
+            IncidentMap::class, // Add your widget here
         ];
     }
 }
