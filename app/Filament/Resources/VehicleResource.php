@@ -96,11 +96,6 @@ class VehicleResource extends Resource
                     ->form([
                         \ArberMustafa\FilamentLocationPickrField\Forms\Components\LocationPickr::make('location')
                             ->defaultZoom(15)
-                            ->options([
-                                'marker' => [
-                                    'icon' => 'https://img.icons8.com/color/48/000000/car--v1.png'
-                                ]
-                            ])
                             // ->draggable()
                             // ->clickable()
                             ->defaultLocation(fn($record) => $record->device ? [$record->device->latitude, $record->device->longitude] : [0, 0])
