@@ -14,6 +14,14 @@ class Incident extends Model implements HasMedia
 
     protected $guarded = [];
 
+    protected $fillable = [
+        'location',
+    ];
+
+    protected $appends = [
+        'location',
+    ];
+
     /**
      * Get the incident_category that owns the Incident
      *
@@ -42,5 +50,26 @@ class Incident extends Model implements HasMedia
     public function barangay(): BelongsTo
     {
         return $this->belongsTo(Barangay::class, 'barangay_id', 'id');
+    }
+
+    public function getLocationAttribute(): array
+    {
+        return [
+            "lat" => (float)$this->latitude,
+            "lng" => (float)$this->longitude,
+        ];
+    }
+
+    public static function getLatLngAttributes(): array
+    {
+        return [
+            'lat' => 'latitude',
+            'lng' => 'longitude',
+        ];
+    }
+
+    public static function getComputedLocation(): string
+    {
+        return 'location';
     }
 }

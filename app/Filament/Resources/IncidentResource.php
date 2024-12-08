@@ -2,16 +2,19 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\IncidentResource\Pages;
-use App\Filament\Resources\IncidentResource\RelationManagers;
-use App\Models\Incident;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Incident;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
+use Cheesegrits\FilamentGoogleMaps\Fields\Map;
+use App\Filament\Resources\IncidentResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\IncidentResource\RelationManagers;
+use App\Filament\Widgets\IncidentMap;
+use ArberMustafa\FilamentLocationPickrField\Forms\Components\LocationPickr;
 
 class IncidentResource extends Resource
 {
@@ -29,9 +32,33 @@ class IncidentResource extends Resource
                 Forms\Components\Textarea::make('description')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('location')
+                LocationPickr::make('location')
+                    ->columnSpanFull()
+                    ->mapControls([
+                        'mapTypeControl'    => true,
+                        'scaleControl'      => true,
+                        'streetViewControl' => true,
+                        'rotateControl'     => true,
+                        'fullscreenControl' => true,
+                        'zoomControl'       => true,
+                    ])
+                    ->defaultZoom(15)
+                    ->draggable()
+                    ->clickable()
+                    ->height('40vh')
+                    ->defaultLocation([16.05056031522701, 120.58785711651207])
+                    ->myLocationButtonLabel('My location')
+                    ->reactive()
                     ->required()
-                    ->maxLength(255),
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        if ($state) {
+                            $set('latitude', $state['lat']);
+                            $set('longitude', $state['lng']);
+                        }
+                    }),
+                // Forms\Components\TextInput::make('location')
+                //     ->required()
+                //     ->maxLength(255),
                 Forms\Components\Select::make('priority')
                     ->options([
                         'low' => 'Low',
@@ -65,6 +92,13 @@ class IncidentResource extends Resource
                     ->relationship('incident_category', 'name')
                     ->required(),
             ]);
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            IncidentMap::class, // Add your widget here
+        ];
     }
 
     public static function table(Table $table): Table

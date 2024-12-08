@@ -196,6 +196,8 @@
                     document.getElementById("longitude").value = currentLocation.lng;
                     document.getElementById("location").value = `${currentLocation.lat}, ${currentLocation.lng}`;
 
+                    @this.set('lat', `${currentLocation.lat}`);
+                    @this.set('long', `${currentLocation.lng}`);
                     @this.set('location', `${currentLocation.lat}, ${currentLocation.lng}`);
                 },
                 (error) => {
@@ -215,6 +217,8 @@
     document.getElementById("longitude").value = location.lng();
     document.getElementById("location").value = location.lat() + ", " + location.lng();
 
+    @this.set('lat', location.lat());
+    @this.set('long', location.lng());
     @this.set('location', location.lat() + ", " + location.lng());
 }
 </script>
