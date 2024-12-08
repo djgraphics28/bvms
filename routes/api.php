@@ -47,6 +47,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put('vehicle-logout/{id}', [VehicleController::class, 'vehicleLogOut']);
     Route::get('vehicle-logs', [VehicleController::class, 'getVehicleLogs']);
 
+    //Device
+    Route::put('/update-location/{code}', [VehicleController::class, 'updateLocation'])->name('update.location');
+
 
     /**
      * @group User Management

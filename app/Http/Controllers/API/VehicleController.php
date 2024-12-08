@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Models\Device;
 use App\Models\Vehicle;
 use App\Models\VehicleLog;
 use Illuminate\Http\Request;
@@ -266,5 +267,22 @@ class VehicleController extends Controller
         $vehicleLogs = VehicleLog::where('barangay_id', $barangayId)->get();
 
         return response()->json($vehicleLogs);
+    }
+
+    public function updateLocation(Request $request, $code)
+    {
+        $lat = $request->input('lat');
+        $lng = $request->input('lng');
+        $location = [
+            'lat' => $lat,
+            'lng' => $lng
+        ];
+
+        $device = Device::where('code', $code)->first();
+
+        if ($device) {
+            $device->update(['location' => json_encode($location), 'latitude' => $lat, 'longitude' => $lng]);
+        }
+        return response()->json(['message' => 'Location updated successfully']);
     }
 }
