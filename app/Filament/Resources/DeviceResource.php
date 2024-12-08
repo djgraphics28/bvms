@@ -39,21 +39,30 @@ class DeviceResource extends Resource
                         'streetViewControl' => true,
                         'rotateControl'     => true,
                         'fullscreenControl' => true,
-                        'zoomControl'       => false,
+                        'zoomControl'       => true,
                     ])
-                    ->defaultZoom(20)
+                    ->defaultZoom(15)
                     ->draggable()
                     ->clickable()
                     ->height('40vh')
                     ->defaultLocation([16.05056031522701, 120.58785711651207])
                     ->myLocationButtonLabel('My location')
                     ->reactive()
+                    ->required()
                     ->afterStateUpdated(function ($state, callable $set) {
                         if ($state) {
                             $set('latitude', $state['lat']);
                             $set('longitude', $state['lng']);
                         }
                     }),
+                Forms\Components\TextInput::make('latitude')
+                    ->required()
+                    ->disabled()
+                    ->dehydrated(),
+                Forms\Components\TextInput::make('longitude')
+                    ->required()
+                    ->disabled()
+                    ->dehydrated(),
             ]);
     }
 
