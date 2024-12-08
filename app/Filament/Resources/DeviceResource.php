@@ -46,7 +46,14 @@ class DeviceResource extends Resource
                     ->clickable()
                     ->height('40vh')
                     ->defaultLocation([16.05056031522701, 120.58785711651207])
-                    ->myLocationButtonLabel('My location'),
+                    ->myLocationButtonLabel('My location')
+                    ->reactive()
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        if ($state) {
+                            $set('latitude', $state['lat']);
+                            $set('longitude', $state['lng']);
+                        }
+                    }),
             ]);
     }
 
