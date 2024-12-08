@@ -45,7 +45,7 @@ class DeviceResource extends Resource
                     ->draggable()
                     ->clickable()
                     ->height('40vh')
-                    // ->defaultLocation([16.05056031522701, 120.58785711651207])
+                    ->defaultLocation([16.05056031522701, 120.58785711651207])
                     ->myLocationButtonLabel('My location'),
             ]);
     }
