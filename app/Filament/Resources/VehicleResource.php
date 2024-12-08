@@ -2,16 +2,17 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\VehicleResource\Pages;
-use App\Filament\Resources\VehicleResource\RelationManagers;
-use App\Models\Vehicle;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Vehicle;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Notifications\Notification;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\VehicleResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\VehicleResource\RelationManagers;
 
 class VehicleResource extends Resource
 {
@@ -97,10 +98,20 @@ class VehicleResource extends Resource
                             ->defaultZoom(13)
                             ->draggable()
                             ->clickable()
-                            ->defaultLocation(fn ($record) => [$record->device->latitude, $record->device->longitude])
+                            ->defaultLocation(fn($record) => [$record->device->latitude, $record->device->longitude])
                     ])
                     ->icon('heroicon-o-map')
-                    ->label('Show in Map'),
+                    ->label('Show in Map')
+                    ->before(function ($record) {
+                        if (empty($record->device->latitude) || empty($record->device->longitude)) {
+                            Notification::make()
+                                ->warning()
+                                ->title('No Tag Device tracker')
+                                ->send();
+
+                            $this->halt();
+                        }
+                    }),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
