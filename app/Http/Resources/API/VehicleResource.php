@@ -27,7 +27,7 @@ class VehicleResource extends JsonResource
             'latitude' => $this->device->latitude ?? 0,
             'longitude' => $this->device->longitude ?? 0,
             'location' => $this->device->location ?? '',
-            'device_image' => config('app.url').'/storage/'.$this->device->image,
+            'device_image' => !is_null($this->device->image) ? config('app.url').'/storage/'.$this->device->image : '',
             // 'created_at' => $this->created_at->format('Y-m-d H:i:s'),
             // 'updated_at' => $this->updated_at->format('Y-m-d H:i:s'),
         ];
