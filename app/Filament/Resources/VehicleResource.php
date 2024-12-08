@@ -97,7 +97,9 @@ class VehicleResource extends Resource
                         \ArberMustafa\FilamentLocationPickrField\Forms\Components\LocationPickr::make('location')
                             ->defaultZoom(15)
                             ->options([
-                                'icon' => 'https://img.icons8.com/color/48/000000/car--v1.png', // URL to your car icon
+                                'marker' => [
+                                    'icon' => 'https://img.icons8.com/color/48/000000/car--v1.png'
+                                ]
                             ])
                             // ->draggable()
                             // ->clickable()
