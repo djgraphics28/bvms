@@ -23,6 +23,7 @@ class IncidentMap extends MapTableWidget
 
 	protected static ?string $mapId = 'incidents';
 
+	protected int | string | array $columnSpan = 'full';
 	protected function getTableQuery(): Builder
 	{
 		return \App\Models\Incident::query()->latest();
