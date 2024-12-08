@@ -98,12 +98,12 @@ class VehicleResource extends Resource
                             ->defaultZoom(13)
                             ->draggable()
                             ->clickable()
-                            ->defaultLocation(fn($record) => [$record->device->latitude, $record->device->longitude])
+                            ->defaultLocation(fn($record) => $record->device ? [$record->device->latitude, $record->device->longitude] : [0, 0])
                     ])
                     ->icon('heroicon-o-map')
                     ->label('Show in Map')
                     ->before(function ($record) {
-                        if (empty($record->device->latitude) || empty($record->device->longitude)) {
+                        if (!$record->device || empty($record->device->latitude) || empty($record->device->longitude)) {
                             Notification::make()
                                 ->warning()
                                 ->title('No Tag Device tracker')
