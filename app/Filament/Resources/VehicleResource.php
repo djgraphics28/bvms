@@ -99,6 +99,7 @@ class VehicleResource extends Resource
                             ->draggable()
                             ->clickable()
                             ->defaultLocation(fn($record) => $record->device ? [$record->device->latitude, $record->device->longitude] : [0, 0])
+                            ->markerIcon('🚗')
                     ])
                     ->icon('heroicon-o-map')
                     ->label('Show in Map')
