@@ -271,7 +271,7 @@ class VehicleController extends Controller
 
     public function updateLocation(Request $request, $code)
     {
-        dd($code, $request->all());
+        // dd($code, $request->all());
         try {
             $lat = $request->input('lat');
             $lng = $request->input('lng');
