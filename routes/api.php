@@ -48,7 +48,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('vehicle-logs', [VehicleController::class, 'getVehicleLogs']);
 
     //Device
-    Route::put('/update-location/{code}', [VehicleController::class, 'updateLocation'])->name('update.location');
+    Route::post('/update-location/{code}', [VehicleController::class, 'updateLocation'])->name('update.location');
 
 
     /**
