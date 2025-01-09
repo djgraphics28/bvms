@@ -29,17 +29,17 @@ class Device extends Model implements HasMedia
         return $this->hasOne(Vehicle::class, 'device_id', 'id: ');
     }
 
-    public function location(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => json_encode([
-                'lat' => (float) $attributes['latitude'],
-                'lng' => (float) $attributes['longitude'],
-            ]),
-            set: fn($value) => [
-                'latitude' => $value['lat'],
-                'longitude' => $value['lng'],
-            ],
-        );
-    }
+    // public function location(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn($value, $attributes) => json_encode([
+    //             'lat' => (float) $attributes['latitude'],
+    //             'lng' => (float) $attributes['longitude'],
+    //         ]),
+    //         set: fn($value) => [
+    //             'latitude' => $value['lat'],
+    //             'longitude' => $value['lng'],
+    //         ],
+    //     );
+    // }
 }
