@@ -47,8 +47,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put('vehicle-logout/{id}', [VehicleController::class, 'vehicleLogOut']);
     Route::get('vehicle-logs', [VehicleController::class, 'getVehicleLogs']);
 
-    //Device
-    Route::post('/update-location/{code}', [VehicleController::class, 'updateLocation'])->name('update.location');
+   
 
 
     /**
@@ -59,3 +58,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::post('/create-driver-account', [UsersController::class, 'createDriverAccount']);
 });
+
+ //Device
+ Route::post('/update-location/{code}', [VehicleController::class, 'updateLocation'])->name('update.location');
