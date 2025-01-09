@@ -271,18 +271,26 @@ class VehicleController extends Controller
 
     public function updateLocation(Request $request, $code)
     {
-        $lat = $request->input('lat');
-        $lng = $request->input('lng');
-        $location = [
-            'lat' => $lat,
-            'lng' => $lng
-        ];
+        try {
+            $lat = $request->input('lat');
+            $lng = $request->input('lng');
+            $location = [
+                'lat' => $lat,
+                'lng' => $lng
+            ];
 
-        $device = Device::where('code', $code)->first();
+            $device = Device::where('code', $code)->first();
 
-        if ($device) {
-            $device->update(['location' => json_encode($location), 'latitude' => $lat, 'longitude' => $lng]);
+            if ($device) {
+                $device->update(['location' => json_encode($location), 'latitude' => $lat, 'longitude' => $lng]);
+            }
+            return response()->json(['message' => 'Location updated successfully']);
+            
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Failed to update location',
+                'message' => $e->getMessage()
+            ], 500);
         }
-        return response()->json(['message' => 'Location updated successfully']);
     }
 }
