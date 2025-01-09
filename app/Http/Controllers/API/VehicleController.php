@@ -271,10 +271,9 @@ class VehicleController extends Controller
 
     public function updateLocation(Request $request, $code)
     {
-        // dd($code, $request->all());
         try {
-            $lat = $request->input('lat');
-            $lng = $request->input('lng');
+            $lat = floatval($request->input('lat'));
+            $lng = floatval($request->input('lng'));
             $location = [
                 'lat' => $lat,
                 'lng' => $lng
@@ -283,10 +282,14 @@ class VehicleController extends Controller
             $device = Device::where('code', $code)->first();
 
             if ($device) {
-                $device->update(['location' => json_encode($location), 'latitude' => $lat, 'longitude' => $lng]);
+                $device->update([
+                    'location' => json_encode($location),
+                    'latitude' => $lat,
+                    'longitude' => $lng
+                ]);
             }
             return response()->json(['message' => 'Location updated successfully']);
-            
+
         } catch (\Exception $e) {
             return response()->json([
                 'error' => 'Failed to update location',
