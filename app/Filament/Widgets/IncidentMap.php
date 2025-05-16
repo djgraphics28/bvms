@@ -76,8 +76,8 @@ class IncidentMap extends MapTableWidget
 		{
 			$data[] = [
 				'location' => [
-					'lat' => $location->latitude ? round(floatval($location->latitude), static::$precision) : 0,
-                    'lng' => $location->longitude ? round(floatval($location->longitude), static::$precision) : 0,
+					'lat' => $location->latitude ? round(floatval($location->latitude), static::$precision) : 15.9061,
+                    'lng' => $location->longitude ? round(floatval($location->longitude), static::$precision) : 120.5853,
 				],
                 'id'      => $location->id,
 			];

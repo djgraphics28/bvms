@@ -92,10 +92,17 @@ class VehicleResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\Action::make('trackLive')
+                    ->icon('heroicon-o-map')
+                    ->label('Track Live')
+                    ->url(fn($record) => route('filament.pages.vehicle-live-tracker', ['record' => $record->id]))
+                    ->openUrlInNewTab()
+                    ->hidden(fn($record) => !$record->device || empty($record->device->latitude)),
                 Tables\Actions\Action::make('showMap')
                     ->form([
                         \ArberMustafa\FilamentLocationPickrField\Forms\Components\LocationPickr::make('location')
                             ->defaultZoom(15)
+                            ->autoRefresh(true)
                             // ->draggable()
                             // ->clickable()
                             ->defaultLocation(fn($record) => $record->device ? [$record->device->latitude, $record->device->longitude] : [0, 0])
@@ -109,7 +116,6 @@ class VehicleResource extends Resource
                                 ->warning()
                                 ->title('No Tag Device tracker')
                                 ->send();
-
                             $this->halt();
                         }
                     }),
